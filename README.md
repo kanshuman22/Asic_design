@@ -47,7 +47,7 @@ Here the first instruction address for main is 10184 and the first instruction i
 
 ### Conclusion
 
-It is observed that the no. of instructions reduces to 12 for Ofast from 15 for O1
+It is observed that the no. of instructions reduces to 12 for Ofast from 15 for O1.
 Ofast reduces  set of instructions  as Ofast applies aggressive optimizations that  removes redundancies and uses parallelism .So the instructions are less when we compare to O1 case.
 
 
