@@ -71,7 +71,7 @@ spike -d pk sum1ton.o
 
 Once we get there, we'll observe the "a0 register". We'll check its value before and after a specific command runs.
 We can observe that the instruction "lui a0,Ox21" changes the value of the register "a0" from  0x0000000000000001 to 0x0000000000021000
-![image](https://github.com/user-attachments/assets/df2847cd-9eb3-45d4-bcf7-267e7f035226)
+![image](https://github.com/user-attachments/assets/8815622e-7913-45d2-97e3-dbe0f4979bfa)
 
 * Debugging the next instruction - "addi sp,sp,-16". The stack pointer (sp) is decremented by 16.
 * We can observe that before execution of this instruction , sp register value was 0x0000003ffffffb50 , it gets updated to 0x0000003ffffffb40.
