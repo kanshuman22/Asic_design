@@ -75,9 +75,7 @@ Command used
 spike -d pk sum1ton.o
 ```
 
-* We'll let Spike run the program until it reaches a specific point,
-
- which is the start of the main part of the program (marked by the instruction "100b0").
+* We'll let Spike run the program until it reaches a specific point,which is the start of the main part of the program (marked by the instruction "100b0").
 
 Once we get there, we'll observe the "a0 register". We'll check its value before and after a specific command runs.
 We can observe that the instruction "lui a0,Ox21" changes the value of the register "a0" from  0x0000000000000001 to 0x0000000000021000
@@ -89,9 +87,12 @@ We can observe that the instruction "lui a0,Ox21" changes the value of the regis
 
 Using O1
 
-Output file:
+Images for O1 case:
 
 ![image](https://github.com/user-attachments/assets/9cd33128-7f7d-423e-8d04-c09d741e536e)
+
+![image](https://github.com/user-attachments/assets/738ac13d-b8ac-47f7-8005-7fbb2f984fa5)
+
 
 
 
