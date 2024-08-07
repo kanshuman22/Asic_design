@@ -23,10 +23,6 @@ Compilation and output of the code:
 
 ![Screenshot from 2024-08-07 19-00-55](https://github.com/user-attachments/assets/d86ad928-17d3-45d1-b9a8-848426dc538f)
 
-![image](https://github.com/user-attachments/assets/4fdea808-60bf-423b-90a4-e5581a8eab6c)
-
-
-
 
 
 *  Object file creation shown below:
