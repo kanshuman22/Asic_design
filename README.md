@@ -52,7 +52,32 @@ Ofast reduces  set of instructions  as Ofast applies aggressive optimizations th
 
 ## TASK 2
 
+* Compiling the objdump file:
+  
+![image](https://github.com/user-attachments/assets/338d70da-37e7-4384-9e93-39f7424aac0b)
+
+
+### Debugging using SPIKE
+
+Command used 
+
+```bash
+spike -d pk sum1ton.o
+```
+
+* We'll let Spike run the program until it reaches a specific point,
+
+ which is the start of the main part of the program (marked by the instruction "100b0").
+
+Once we get there, we'll observe the "a0 register". We'll check its value before and after a specific command runs.
+We can observe that the instruction "lui a0,Ox21" changes the value of the register "a0" from  0x0000000000000001 to 0x0000000000021000
 ![image](https://github.com/user-attachments/assets/df2847cd-9eb3-45d4-bcf7-267e7f035226)
+
+* Debugging the next instruction - "addi sp,sp,-16". The stack pointer (sp) is decremented by 16.
+* We can observe that before execution of this instruction , sp register value was 0x0000003ffffffb50 , it gets updated to 0x0000003ffffffb40.
+![image](https://github.com/user-attachments/assets/53d95e18-1a13-478a-bd28-4426e88caa23)
+
+
 
 
 
