@@ -44,6 +44,10 @@ Here the first instruction address for main is 10184 and the first instruction i
 
 ![image](https://github.com/user-attachments/assets/6c1296ea-7eb5-43ad-8c8f-2b2d8cfcc657)
 
+### Conclusion
+
+It is observed that the no. of instructions reduces to 12 for Ofast from 15 for O1
+
 
 
 
