@@ -57,9 +57,14 @@ Ofast reduces  set of instructions  as Ofast applies aggressive optimizations th
 
 ## TASK 2
 
+Using Ofast 
+
 * Compiling the objdump file:
   
 ![image](https://github.com/user-attachments/assets/338d70da-37e7-4384-9e93-39f7424aac0b)
+
+![image](https://github.com/user-attachments/assets/5256f187-b873-4567-bea5-2237499c0219)
+
 
 
 ### Debugging using SPIKE
@@ -81,6 +86,15 @@ We can observe that the instruction "lui a0,Ox21" changes the value of the regis
 * Debugging the next instruction - "addi sp,sp,-16". The stack pointer (sp) is decremented by 16.
 * We can observe that before execution of this instruction , sp register value was 0x0000003ffffffb50 , it gets updated to 0x0000003ffffffb40.
 ![image](https://github.com/user-attachments/assets/53d95e18-1a13-478a-bd28-4426e88caa23)
+
+Using O1
+
+Output file:
+
+![image](https://github.com/user-attachments/assets/9cd33128-7f7d-423e-8d04-c09d741e536e)
+
+
+
 
 
 
