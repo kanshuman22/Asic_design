@@ -50,6 +50,10 @@ It is observed that the no. of instructions reduces to 12 for Ofast from 15 for 
 Ofast reduces  set of instructions  as Ofast applies aggressive optimizations that  removes redundancies and uses parallelism .So the instructions are less when we compare to O1 case.
 
 
+## TASK 2
+
+![image](https://github.com/user-attachments/assets/df2847cd-9eb3-45d4-bcf7-267e7f035226)
+
 
 
 
