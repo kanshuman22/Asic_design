@@ -95,6 +95,20 @@ Images for O1 case:
 ## RISC-V Instruction Formats
 
 ## Instruction Formats
+# RISC-V Instruction Formats
+
+This repository provides a detailed overview of the six primary instruction formats in the RISC-V architecture. Each format is designed for specific types of operations and includes fields that define how the instruction is encoded.
+
+![image](https://github.com/user-attachments/assets/027bf444-c5e3-4766-8ca0-31a5e45cf4d1)
+
+
+## Instruction Formats
+
+# RISC-V Instruction Formats
+
+This repository provides a detailed overview of the six primary instruction formats in the RISC-V architecture. Each format is designed for specific types of operations and includes fields that define how the instruction is encoded.
+
+## Instruction Formats
 
 ### R-Type Instructions
 
@@ -172,65 +186,152 @@ Images for O1 case:
 
 ### PART 1
 
-### Instruction Types
+## Instructions
 
-### R-Type Instructions
-R-Type instructions perform operations between registers.
+### 1. ADD r4, r4, r4
+- **Type**: R
+- **32-bit Pattern**: `0000000 00100 00100 000 00100 0110011`
+- **Fields**:
+  - **opcode**: `0110011` (R-type)
+  - **funct3**: `000` (ADD)
+  - **funct7**: `0000000`
+  - **rs1**: `00100` (r4)
+  - **rs2**: `00100` (r4)
+  - **rd**: `00100` (r4)
 
-- **ADD** r4, r4, r4  
-  - **Binary Pattern**: `0000000 00100 00100 000 00100 0110011`
+### 2. SUB r4, r4, r4
+- **Type**: R
+- **32-bit Pattern**: `0000001 00100 00100 000 00100 0110011`
+- **Fields**:
+  - **opcode**: `0110011` (R-type)
+  - **funct3**: `000` (SUB)
+  - **funct7**: `0100000`
+  - **rs1**: `00100` (r4)
+  - **rs2**: `00100` (r4)
+  - **rd**: `00100` (r4)
 
-- **SUB** r4, r4, r4  
-  - **Binary Pattern**: `0100000 00100 00100 000 00100 0110011`
+### 3. AND r4, r4, r4
+- **Type**: R
+- **32-bit Pattern**: `0000000 00100 00100 111 00100 0110011`
+- **Fields**:
+  - **opcode**: `0110011` (R-type)
+  - **funct3**: `111` (AND)
+  - **funct7**: `0000000`
+  - **rs1**: `00100` (r4)
+  - **rs2**: `00100` (r4)
+  - **rd**: `00100` (r4)
 
-- **AND** r4, r4, r4  
-  - **Binary Pattern**: `0000000 00100 00100 111 00100 0110011`
+### 4. OR r8, r4, r5
+- **Type**: R
+- **32-bit Pattern**: `0000000 00101 00100 110 01000 0110011`
+- **Fields**:
+  - **opcode**: `0110011` (R-type)
+  - **funct3**: `110` (OR)
+  - **funct7**: `0000000`
+  - **rs1**: `00100` (r4)
+  - **rs2**: `00101` (r5)
+  - **rd**: `01000` (r8)
 
-- **OR** r8, r4, r5  
-  - **Binary Pattern**: `0000000 00101 00100 110 01000 0110011`
+### 5. XOR r8, r4, r4
+- **Type**: R
+- **32-bit Pattern**: `0000000 00100 00100 100 01000 0110011`
+- **Fields**:
+  - **opcode**: `0110011` (R-type)
+  - **funct3**: `100` (XOR)
+  - **funct7**: `0000000`
+  - **rs1**: `00100` (r4)
+  - **rs2**: `00100` (r4)
+  - **rd**: `01000` (r8)
 
-- **XOR** r8, r4, r4  
-  - **Binary Pattern**: `0000000 00100 00100 100 01000 0110011`
+### 6. SLT r00, r1, r4
+- **Type**: R
+- **32-bit Pattern**: `0000000 00100 00001 010 00000 0110011`
+- **Fields**:
+  - **opcode**: `0110011` (R-type)
+  - **funct3**: `010` (SLT)
+  - **funct7**: `0000000`
+  - **rs1**: `00001` (r1)
+  - **rs2**: `00100` (r4)
+  - **rd**: `00000` (r00)
 
-- **SLT** r00, r1, r4  
-  - **Binary Pattern**: `0000000 00100 00001 010 00000 0110011`
+### 7. ADDI r02, r2, 5
+- **Type**: I
+- **32-bit Pattern**: `000000000101 00010 000 00010 0010011`
+- **Fields**:
+  - **opcode**: `0010011` (I-type)
+  - **funct3**: `000` (ADDI)
+  - **rs1**: `00010` (r2)
+  - **rd**: `00010` (r02)
+  - **immediate**: `000000000101` (5)
 
-- **SLL** r05, r01, r1  
-  - **Binary Pattern**: `0000000 00001 00001 001 00101 0110011`
+### 8. SW r2, r0, 4
+- **Type**: S
+- **32-bit Pattern**: `000000000100 00000 010 00010 0100011`
+- **Fields**:
+  - **opcode**: `0100011` (S-type)
+  - **funct3**: `010` (SW)
+  - **rs1**: `00000` (r0)
+  - **rs2**: `00010` (r2)
+  - **imm[11:5]**: `0000000` (0)
+  - **imm[4:0]**: `00100` (4)
 
-### I-Type Instructions
-I-Type instructions involve an immediate value.
+### 9. SRL r06, r01, r1
+- **Type**: R
+- **32-bit Pattern**: `0000000 00001 00001 101 00110 0110011`
+- **Fields**:
+  - **opcode**: `0110011` (R-type)
+  - **funct3**: `101` (SRL)
+  - **funct7**: `0000000`
+  - **rs1**: `00001` (r01)
+  - **rs2**: `00001` (r1)
+  - **rd**: `00110` (r06)
 
-- **ADDI** r02, r2, 5  
-  - **Binary Pattern**: `000000000101 00010 000 00010 0010011`
+### 10. BNE r0, r0, 20
+- **Type**: B
+- **32-bit Pattern**: `000000000101 00000 001 00000 1100011`
+- **Fields**:
+  - **opcode**: `1100011` (B-type)
+  - **funct3**: `001` (BNE)
+  - **rs1**: `00000` (r0)
+  - **rs2**: `00000` (r0)
+  - **imm[12]**: `0`
+  - **imm[10:5]**: `000000`
+  - **imm[4:1]**: `0101`
+  - **imm[11]**: `0`
 
-- **SRL** r06, r01, r1  
-  - **Binary Pattern**: `0000000 00001 00001 101 00110 0010011`
+### 11. BEQ r0, r0, 15
+- **Type**: B
+- **32-bit Pattern**: `000000000111 00000 000 00000 1100011`
+- **Fields**:
+  - **opcode**: `1100011` (B-type)
+  - **funct3**: `000` (BEQ)
+  - **rs1**: `00000` (r0)
+  - **rs2**: `00000` (r0)
+  - **imm[12]**: `0`
+  - **imm[10:5]**: `000000`
+  - **imm[4:1]**: `0111`
+  - **imm[11]**: `0`
 
-- **LW** r03, r01, 2  
-  - **Binary Pattern**: `000000000010 00001 010 00011 0000011`
+### 12. LW r03, r01, 2
+- **Type**: I
+- **32-bit Pattern**: `000000000010 00001 010 00011 0000011`
+- **Fields**:
+  - **opcode**: `0000011` (I-type)
+  - **funct3**: `010` (LW)
+  - **rs1**: `00001` (r01)
+  - **rd**: `00011` (r03)
+  - **immediate**: `000000000010` (2)
 
-### S-Type Instructions
-S-Type instructions are used for store operations.
-
-- **SW** r2, r0, 4  
-  - **Binary Pattern**: `000000000100 00000 010 00010 0100011`
-
-### B-Type Instructions
-B-Type instructions are used for conditional branches.
-
-- **BNE** r0, r0, 20  
-  - **Binary Pattern**: `00000000010100 00000 001 00000 1100011`
-
-- **BEQ** r0, r0, 15  
-  - **Binary Pattern**: `00000000001111 00000 000 00000 1100011`
-
-
-
-
-
-
-
+### 13. SLL r05, r01, r1
+- **Type**: R
+- **32-bit Pattern**: `0000000 00001 00001 001 00101 0110011`
+- **Fields**:
+  - **opcode**: `0110011` (R-type)
+  - **funct3**: `001` (SLL)
+  - **funct7**: `0000000`
+  - **rs1**: `00001` (r01)
+  - **rs2**: `00001` (r1)
+  - **rd**: `00101` (r05)
 
 
 
