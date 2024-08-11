@@ -90,6 +90,144 @@ Images for O1 case:
 ![image](https://github.com/user-attachments/assets/738ac13d-b8ac-47f7-8005-7fbb2f984fa5)
 
 
+## TASK 3
+
+## RISC-V Instruction Formats
+
+## Instruction Formats
+
+### R-Type Instructions
+
+- **Purpose**: R-Type instructions are used for arithmetic and logical operations involving three registers.
+- **Format**:
+  - **funct7 (7 bits)**: Function code for additional instruction differentiation.
+  - **rs2 (5 bits)**: Second source register.
+  - **rs1 (5 bits)**: First source register.
+  - **funct3 (3 bits)**: Function code to specify the operation type.
+  - **rd (5 bits)**: Destination register for storing the result.
+  - **opcode (7 bits)**: Basic operation code, typically `0110011` for integer operations.
+- **Examples**: ADD, SUB, OR, XOR, etc.
+
+
+### I-Type Instructions
+
+- **Purpose**: I-Type instructions involve an immediate value and one or two registers. They are used for operations like arithmetic with immediate values, loading data, and certain branches.
+- **Format**:
+  - **immediate (12 bits)**: Immediate value used in the operation.
+  - **rs1 (5 bits)**: Source register.
+  - **funct3 (3 bits)**: Function code for operation differentiation.
+  - **rd (5 bits)**: Destination register.
+  - **opcode (7 bits)**: Operation code for I-Type instructions.
+
+
+### S-Type Instructions
+
+- **Purpose**: S-Type instructions are used for storing data from a register into memory.
+- **Format**:
+  - **imm[11:5] (7 bits)**: Upper part of the immediate value (memory offset).
+  - **rs2 (5 bits)**: Register containing the data to be stored.
+  - **rs1 (5 bits)**: Base address register.
+  - **funct3 (3 bits)**: Function code specifying the store operation.
+  - **imm[4:0] (5 bits)**: Lower part of the immediate value.
+  - **opcode (7 bits)**: Operation code for S-Type instructions.
+
+
+### B-Type Instructions
+
+- **Purpose**: B-Type instructions are used for conditional branching, allowing for program flow changes based on register comparisons.
+- **Format**:
+  - **imm[12] (1 bit)**: The 12th bit of the immediate value for branching.
+  - **imm[10:5] (6 bits)**: Bits 10 through 5 of the immediate value.
+  - **rs2 (5 bits)**: Second source register.
+  - **rs1 (5 bits)**: First source register.
+  - **funct3 (3 bits)**: Function code for branch operations.
+  - **imm[4:1] (4 bits)**: Bits 4 through 1 of the immediate value.
+  - **imm[11] (1 bit)**: The 11th bit of the immediate value.
+  - **opcode (7 bits)**: Operation code for B-Type instructions.
+
+
+### U-Type Instructions
+
+- **Purpose**: U-Type instructions handle large immediate values, often for loading upper immediate values or computing addresses.
+- **Format**:
+  - **immediate[31:12] (20 bits)**: Upper 20 bits of the immediate value.
+  - **rd (5 bits)**: Destination register.
+  - **opcode (7 bits)**: Operation code for U-Type instructions.
+- **Note**: The immediate value is stored in the upper 20 bits of a 32-bit word, with the lower 12 bits set to zero.
+
+
+### J-Type Instructions
+
+- **Purpose**: J-Type instructions are used for unconditional jumps, altering the control flow by jumping to a specific address, typically for function calls or loops.
+- **Format**:
+  - **imm[20] (1 bit)**: The 20th bit of the immediate value.
+  - **imm[10:1] (10 bits)**: Bits 10 through 1 of the immediate value.
+  - **imm[11] (1 bit)**: The 11th bit of the immediate value.
+  - **imm[19:12] (8 bits)**: Bits 19 through 12 of the immediate value.
+  - **rd (5 bits)**: Destination register for storing the return address.
+  - **opcode (7 bits)**: Operation code for J-Type instructions.
+
+
+
+
+### PART 1
+
+### Instruction Types
+
+### R-Type Instructions
+R-Type instructions perform operations between registers.
+
+- **ADD** r4, r4, r4  
+  - **Binary Pattern**: `0000000 00100 00100 000 00100 0110011`
+
+- **SUB** r4, r4, r4  
+  - **Binary Pattern**: `0100000 00100 00100 000 00100 0110011`
+
+- **AND** r4, r4, r4  
+  - **Binary Pattern**: `0000000 00100 00100 111 00100 0110011`
+
+- **OR** r8, r4, r5  
+  - **Binary Pattern**: `0000000 00101 00100 110 01000 0110011`
+
+- **XOR** r8, r4, r4  
+  - **Binary Pattern**: `0000000 00100 00100 100 01000 0110011`
+
+- **SLT** r00, r1, r4  
+  - **Binary Pattern**: `0000000 00100 00001 010 00000 0110011`
+
+- **SLL** r05, r01, r1  
+  - **Binary Pattern**: `0000000 00001 00001 001 00101 0110011`
+
+### I-Type Instructions
+I-Type instructions involve an immediate value.
+
+- **ADDI** r02, r2, 5  
+  - **Binary Pattern**: `000000000101 00010 000 00010 0010011`
+
+- **SRL** r06, r01, r1  
+  - **Binary Pattern**: `0000000 00001 00001 101 00110 0010011`
+
+- **LW** r03, r01, 2  
+  - **Binary Pattern**: `000000000010 00001 010 00011 0000011`
+
+### S-Type Instructions
+S-Type instructions are used for store operations.
+
+- **SW** r2, r0, 4  
+  - **Binary Pattern**: `000000000100 00000 010 00010 0100011`
+
+### B-Type Instructions
+B-Type instructions are used for conditional branches.
+
+- **BNE** r0, r0, 20  
+  - **Binary Pattern**: `00000000010100 00000 001 00000 1100011`
+
+- **BEQ** r0, r0, 15  
+  - **Binary Pattern**: `00000000001111 00000 000 00000 1100011`
+
+
+
+
 
 
 
