@@ -368,6 +368,11 @@ The RISC-V ISA and the Hardcoded ISA
 | SLL R15, R1, R2     | 32'h002097b3        | 000000000010 00000 111 01111 0110011       | 32'h00208783      | 000000100010 00000 111 01111 01100000  |
 
 
+We will be using gtkwave to analyse the waveforms
+
+![image](https://github.com/user-attachments/assets/7a6bde53-89b5-4f62-8753-78d6360b6252)
+
+
 
 Hardcode instructions output waveforms:
 
