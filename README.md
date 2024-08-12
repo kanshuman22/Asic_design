@@ -414,8 +414,33 @@ add r14,r2,r2
 ![image](https://github.com/user-attachments/assets/2df20fd0-4a57-4b33-a2c6-8095ede49cd4)
 
 
+Corresponding waveforms for our instructions
+
+![image](https://github.com/user-attachments/assets/95e5f151-1eb8-46c6-8577-f683a3fb6402)
 
 
+![image](https://github.com/user-attachments/assets/b9ce5baf-5a62-4905-bb03-2d36058fdeca)
 
 
+![image](https://github.com/user-attachments/assets/93a48b55-e33f-41e4-987c-ac9b2be7e8b8)
+
+
+![image](https://github.com/user-attachments/assets/72b1b705-3418-446b-8481-91ccef9d72c9)
+
+
+![image](https://github.com/user-attachments/assets/7a974386-08bc-4238-9ee1-278e14689667)
+
+
+![image](https://github.com/user-attachments/assets/1efd009f-35f5-467c-8937-c52f1e334581)
+
+
+![image](https://github.com/user-attachments/assets/69479bea-381f-44f5-90ba-c7a71fd18a64)
+
+![image](https://github.com/user-attachments/assets/5b5aae57-340c-428c-bf7c-6de74d8ee92b)
+
+![image](https://github.com/user-attachments/assets/a4dde053-9ad4-4953-8416-7d72b9333d17)
+
+![image](https://github.com/user-attachments/assets/bb91d0fd-2b75-4b3d-a139-b1f7b75f4beb)
+
+![image](https://github.com/user-attachments/assets/b848e154-b90d-47ff-aa3d-2bd614cee95e)
 
