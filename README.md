@@ -351,6 +351,55 @@ This repository provides a detailed overview of the six primary instruction form
 4
 ![image](https://github.com/user-attachments/assets/1bf1974c-2856-4c98-b12d-b9d81e05e3c8)
 
+5
+
+![image](https://github.com/user-attachments/assets/a0b2b8c7-6898-4510-bb47-917e3866196b)
+
+6
+
+![image](https://github.com/user-attachments/assets/228558de-979b-4134-9898-5ef471876d59)
+
+7
+
+![image](https://github.com/user-attachments/assets/23082282-6362-473a-b943-69cda247db6e)
+
+8
+
+![image](https://github.com/user-attachments/assets/1d46c231-e6e5-4efc-a367-a036ad5e9671)
+
+9
+
+![image](https://github.com/user-attachments/assets/25346670-526b-499c-947d-d003fc8be0c3)
+
+
+10
+
+![image](https://github.com/user-attachments/assets/497e1fda-1b1b-4fcf-9760-f0e6c14316f5)
+
+11
+
+![image](https://github.com/user-attachments/assets/2df20fd0-4a57-4b33-a2c6-8095ede49cd4)
+
+12
+
+![image](https://github.com/user-attachments/assets/d631ecc6-1ece-4c3c-9362-fc59aa788ecb)
+
+
+13
+
+![image](https://github.com/user-attachments/assets/9f59e2f4-e5f9-4c77-99f7-f63c9d3dff91)
+
+14
+
+![image](https://github.com/user-attachments/assets/6678dc12-409b-4d0e-9699-836d4991fb02)
+
+
+
+
+
+
+
+
 
 
 
