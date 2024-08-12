@@ -444,3 +444,5 @@ Corresponding waveforms for our instructions
 
 ![image](https://github.com/user-attachments/assets/b848e154-b90d-47ff-aa3d-2bd614cee95e)
 
+A difference in waveforms can be observed for both set of instructions
+
