@@ -337,6 +337,23 @@ This repository provides a detailed overview of the six primary instruction form
 
 
 
+1
+![image](https://github.com/user-attachments/assets/ae731f5b-c611-416f-886d-b60bd343b35b)
+
+2
+
+![image](https://github.com/user-attachments/assets/ae3bd791-5cd9-4969-a904-ff20d60a02e8)
+
+3
+
+![image](https://github.com/user-attachments/assets/ea26a0c2-9b07-4395-92ba-7ce7334198aa)
+
+4
+![image](https://github.com/user-attachments/assets/1bf1974c-2856-4c98-b12d-b9d81e05e3c8)
+
+
+
+
 
 
 
