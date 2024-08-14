@@ -451,3 +451,40 @@ Corresponding waveforms for our instructions
 
 A difference in waveforms can be observed for both set of instructions
 
+## TASK 4
+
+A C code which utilizes the binary exponentiation algorithm to calculate the power of a number with time complexity O(log n). Binary exponentiation is an algorithm that reduces the number of multiplications needed to compute powers of a number by exploiting the properties of exponents in binary form.
+
+### C Code
+
+![image](https://github.com/user-attachments/assets/547081ab-bb02-4696-b3f2-ebb0a4161a23)
+
+### GCC Compilation and execution
+
+![image](https://github.com/user-attachments/assets/8cb7b108-dc4a-453f-9b40-d52560b5a402)
+
+### RISC-V Compilation
+
+We will use the O1 switch
+
+
+![image](https://github.com/user-attachments/assets/1591ffea-5cf4-488e-94c7-af934c3a01c7)
+
+Objdump file
+
+![image](https://github.com/user-attachments/assets/acdcc33e-a0ea-45c3-ab2d-986e98fe7240)
+
+![image](https://github.com/user-attachments/assets/3a72db72-20e7-4d2b-819e-eba241f603ef)
+
+
+
+
+### Debugging with spike
+
+![image](https://github.com/user-attachments/assets/28f9aa56-4fc3-400e-b47d-28aec549d08d)
+
+We can see the registers have the corresponding values, the values 5,2 and 25 are present on their respective registers.
+
+
+
+
