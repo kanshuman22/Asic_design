@@ -459,7 +459,7 @@ A C code which utilizes the binary exponentiation algorithm to calculate the pow
 
 ![image](https://github.com/user-attachments/assets/547081ab-bb02-4696-b3f2-ebb0a4161a23)
 
-### GCC Compilation and execution
+### GCC Compilation 
 
 ![image](https://github.com/user-attachments/assets/8cb7b108-dc4a-453f-9b40-d52560b5a402)
 
@@ -467,8 +467,8 @@ A C code which utilizes the binary exponentiation algorithm to calculate the pow
 
 We will use the O1 switch
 
+![image](https://github.com/user-attachments/assets/a33e4e1f-aaa4-4151-b663-ec9489a7d96e)
 
-![image](https://github.com/user-attachments/assets/1591ffea-5cf4-488e-94c7-af934c3a01c7)
 
 Objdump file
 
@@ -476,6 +476,10 @@ Objdump file
 
 ![image](https://github.com/user-attachments/assets/3a72db72-20e7-4d2b-819e-eba241f603ef)
 
+Counting no. of instructions:
+101b4-10184
+We will then divide by 4 the decimal value obtained .Doing this we get the no. of instructions. We get 12 instructions for base=5 and exponent=2
+![image](https://github.com/user-attachments/assets/6ffadb57-a960-466a-a810-0c08d8c81519)
 
 
 
@@ -483,7 +487,7 @@ Objdump file
 
 ![image](https://github.com/user-attachments/assets/28f9aa56-4fc3-400e-b47d-28aec549d08d)
 
-We can see the registers have the corresponding values, the values 5,2 and 25 are present on their respective registers.
+We first bring the program counter to the start of the main function. We can see the registers have the corresponding values, the values 5,2 and 25 are present on their respective registers.
 
 
 
