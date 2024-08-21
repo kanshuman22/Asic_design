@@ -554,6 +554,11 @@ This coordinated effort allows the CPU to efficiently execute a program's instru
 ![image](https://github.com/user-attachments/assets/38470b3c-655f-41ec-80fa-7a617eb548ec)
 
 
+### Register File Read
+
+
+
+
 
 
 
