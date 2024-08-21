@@ -762,6 +762,35 @@ We now test our code using testbench ,
 
 
 
+![image](https://github.com/user-attachments/assets/1486efe5-f43a-41e8-8e49-423146c9c6d3)
+
+![image](https://github.com/user-attachments/assets/ab437faa-c8c0-4abe-81ac-fefc60cf2cfa)
+
+![image](https://github.com/user-attachments/assets/608b82b4-7e25-49bf-84f8-f7b46ddc75ea)
+
+We can observe the value of /xreg[14] it has a hexadecimal value of 2D which converts to 45 in decimal system which is the sum from 1 to 9.
+
+
+We will now take a look at the concepts of day 5
+
+### Pipelining Hazards
+
+Pipelining in CPU architecture can introduce several types of hazards that disrupt the smooth execution of instructions.
+
+- **Structural Hazard**  
+  This occurs when multiple instructions compete for the same hardware resource, causing delays and stalls in the pipeline.
+
+- **Data Hazard**  
+  This arises when an instruction depends on the outcome of a preceding instruction that has not yet completed. Such dependencies can result in incorrect results or delays if the required data is not available in time.
+
+- **Control Hazard (Branch Hazard)**  
+  This happens due to uncertainty over whether a branch instruction will be taken. If the prediction about a branch is incorrect, the pipeline must be flushed and restarted with the correct instructions, leading to a performance penalty.
+
+Understanding and managing these hazards useful for optimizing pipeline performance and ensuring efficient instruction execution.
+
+
+
+
 
 
 
