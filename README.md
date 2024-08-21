@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d63af219-4977-42cd-bcff-05b49b951476)# ASIC DESIGN  
+# ASIC DESIGN  
 
 ## TASK 1
 
