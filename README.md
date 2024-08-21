@@ -792,7 +792,6 @@ Code:
 
 ```bash
 
-
 \m4_TLV_version 1d: tl-x.org
 \SV
    // Template code can be found in: https://github.com/stevehoover/RISC-V_MYTH_Workshop
@@ -836,7 +835,7 @@ Code:
          $reset = *reset;
          $clk_ansh = *clk;
          
-         //PC fetch - branch, jumps and loads introduce 2 cycle bubbles in this pipeline
+         
          $pc[31:0] = >>1$reset ? '0 : (>>3$valid_taken_br ? >>3$br_tgt_pc :
                                        >>3$valid_load     ? >>3$inc_pc[31:0] :
                                        >>3$jal_valid      ? >>3$br_tgt_pc :
@@ -1054,7 +1053,7 @@ Code:
    
    // Assert these to end simulation (before Makerchip cycle limit).
    //Checks if sum of numbers from 1 to 9 is obtained in reg[17] and runs 10 cycles extra after this is met
-   *passed = |cpu/xreg[14]>>10$value == (1+2+3+4+5+6+7+8+9);
+   *passed = |cpu/xreg[17]>>10$value == (1+2+3+4+5+6+7+8+9);
    //Run for 200 cycles without any checks
    //*passed = *cyc_cnt > 200;
    *failed = 1'b0;
@@ -1073,13 +1072,21 @@ Code:
                        // @4 would work for all labs
 \SV
    endmodule
-
 ```
 
 
+![image](https://github.com/user-attachments/assets/d4778cc5-49d0-4c2c-add4-8b63140c2276)
 
 
+![image](https://github.com/user-attachments/assets/1518df93-cd04-4c23-a050-c1bed78b4dda)
 
+![image](https://github.com/user-attachments/assets/bc897566-f5a9-45d2-9a98-a2a0c7620f9e)
+
+
+![image](https://github.com/user-attachments/assets/6c14e0b4-fbd8-4377-90b2-b10cc362208a)
+
+
+We can observe the value of /xreg[14] it has a hexadecimal value of 2D which converts to 45 in decimal system which is the sum from 1 to 9.
 
 
 
