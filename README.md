@@ -537,42 +537,49 @@ This coordinated effort allows the CPU to efficiently execute a program's instru
 
 ### Program Counter
 
-![image](https://github.com/user-attachments/assets/497c9d54-f5f8-4346-87a5-fc7e03a475b1)
+![pc](https://github.com/user-attachments/assets/e735fcf1-69ca-4a46-bc0d-bd49f4e57589)
 
 
 ### Instruction fetch
 
-![image](https://github.com/user-attachments/assets/a7fa0246-7b24-4cf4-ad1e-8645fddd3711)
+![2](https://github.com/user-attachments/assets/b6a4bb4e-7306-4708-af47-7445d75b376b)
+
 
 
 ### Instruction decode
 
-![image](https://github.com/user-attachments/assets/c6ddaac1-76bf-4048-9b92-d32ae79351ad)
+![3](https://github.com/user-attachments/assets/71416d87-f682-462d-a406-b678a22302d9)
 
-![image](https://github.com/user-attachments/assets/1baa0a3f-1941-4c40-949b-a916c17893cf)
+
+![3_2](https://github.com/user-attachments/assets/13478985-0ad2-449f-892c-58df715363f3)
+
 
 
 ### Register File Read
 
-![image](https://github.com/user-attachments/assets/7d74e0f0-001e-4e83-b0ce-033318ddc5b6)
+![4](https://github.com/user-attachments/assets/ca097eb0-cfd0-4786-9f6c-ac5982b49c85)
+
 
 ### ALU 
 
-![image](https://github.com/user-attachments/assets/e44b3ed6-0458-4667-a431-dfbe8bd6f1a6)
+![5](https://github.com/user-attachments/assets/4dfd08c7-1251-489d-a68d-d0507f4c7794)
 
-![image](https://github.com/user-attachments/assets/c00b3301-1e3e-4da8-986e-9c55f8baf3f5)
+![5_2](https://github.com/user-attachments/assets/501a4673-4866-4e0a-a5bd-4f2b0c84e486)
+
 
 ### Register File Write
 
-![image](https://github.com/user-attachments/assets/d37589cf-a960-457d-9c48-ce34e26cdcf4)
+![6](https://github.com/user-attachments/assets/a0be8a10-0dca-41ee-a294-353dec9789fb)
 
-![image](https://github.com/user-attachments/assets/a8176270-a8f1-4084-9449-f24158cd8a53)
+
+![6_2](https://github.com/user-attachments/assets/d2de9807-8f31-4e8c-8d97-a24d16235cec)
+
 
 ### Branch Instructions
 
-![image](https://github.com/user-attachments/assets/8a41d869-872e-4e43-9642-f6ee1a56756d)
+![7](https://github.com/user-attachments/assets/ac22c481-1f21-4f69-93f0-02396c20da80)
 
-![image](https://github.com/user-attachments/assets/e93ffa9e-14c2-4af6-86b6-552e5c427b71)
+![7_2](https://github.com/user-attachments/assets/3ac8aed0-71d3-4131-a5f5-2c44e4eb090d)
 
 
 
