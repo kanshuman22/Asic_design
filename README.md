@@ -547,6 +547,11 @@ This coordinated effort allows the CPU to efficiently execute a program's instru
 
 ### Instruction decode
 
+![image](https://github.com/user-attachments/assets/87ea5a87-5b7e-4a67-9dd6-41362ae2f8a4)
+
+![image](https://github.com/user-attachments/assets/86aeb543-71fa-4665-afa9-a480051fec1b)
+
+![image](https://github.com/user-attachments/assets/38470b3c-655f-41ec-80fa-7a617eb548ec)
 
 
 
