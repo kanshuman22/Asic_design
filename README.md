@@ -490,5 +490,9 @@ We will then divide by 4 the decimal value obtained .Doing this we get the no. o
 We first bring the program counter to the start of the main function. We can see the registers have the corresponding values, the values 5,2 and 25 are present on their respective registers.
 
 
+## TASK 6
+
+### Pipelined RISC-V Processor
+
 
 
