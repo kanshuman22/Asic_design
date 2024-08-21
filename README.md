@@ -1,4 +1,4 @@
-# ASIC DESIGN  
+![image](https://github.com/user-attachments/assets/d63af219-4977-42cd-bcff-05b49b951476)# ASIC DESIGN  
 
 ## TASK 1
 
@@ -547,14 +547,38 @@ This coordinated effort allows the CPU to efficiently execute a program's instru
 
 ### Instruction decode
 
-![image](https://github.com/user-attachments/assets/87ea5a87-5b7e-4a67-9dd6-41362ae2f8a4)
+![image](https://github.com/user-attachments/assets/c6ddaac1-76bf-4048-9b92-d32ae79351ad)
 
-![image](https://github.com/user-attachments/assets/86aeb543-71fa-4665-afa9-a480051fec1b)
-
-![image](https://github.com/user-attachments/assets/38470b3c-655f-41ec-80fa-7a617eb548ec)
+![image](https://github.com/user-attachments/assets/1baa0a3f-1941-4c40-949b-a916c17893cf)
 
 
 ### Register File Read
+
+![image](https://github.com/user-attachments/assets/7d74e0f0-001e-4e83-b0ce-033318ddc5b6)
+
+### ALU 
+
+![image](https://github.com/user-attachments/assets/e44b3ed6-0458-4667-a431-dfbe8bd6f1a6)
+
+![image](https://github.com/user-attachments/assets/c00b3301-1e3e-4da8-986e-9c55f8baf3f5)
+
+### Register File Write
+
+![image](https://github.com/user-attachments/assets/d37589cf-a960-457d-9c48-ce34e26cdcf4)
+
+![image](https://github.com/user-attachments/assets/a8176270-a8f1-4084-9449-f24158cd8a53)
+
+### Branch Instructions
+
+![image](https://github.com/user-attachments/assets/8a41d869-872e-4e43-9642-f6ee1a56756d)
+
+![image](https://github.com/user-attachments/assets/e93ffa9e-14c2-4af6-86b6-552e5c427b71)
+
+
+
+
+
+
 
 
 
