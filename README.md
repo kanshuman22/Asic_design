@@ -537,8 +537,13 @@ This coordinated effort allows the CPU to efficiently execute a program's instru
 
 ### Program Counter
 
-![image](https://github.com/user-attachments/assets/806654f7-9d7f-4a8e-b592-8f49e7886e9a)
+![image](https://github.com/user-attachments/assets/fa0d1e39-62fb-48dd-b743-9e92279cd621)
 
+
+
+
+
+### Instruction fetch
 
 ```bash
 
@@ -552,8 +557,9 @@ This coordinated effort allows the CPU to efficiently execute a program's instru
    m4_makerchip_module   // (Expanded in Nav-TLV pane.)
 \TLV
 
-   // 
-   //
+   
+   // Program for MYTH Workshop to test RV32I
+   // Add 1,2,3,...,9 (in that order).
    //
    // Regs:
    //  r10 (a0): In: 0, Out: final sum
@@ -587,7 +593,16 @@ This coordinated effort allows the CPU to efficiently execute a program's instru
       // ...
       @0
          $pc[31:0] = >>1$reset ? 32'd0 : (>>1$pc+32'd4);
-      // 
+      @1
+         $imem_rd_en = !$reset;
+         $imem_rd_addr[M4_IMEM_INDEX_CNT-1:0] = $pc[M4_IMEM_INDEX_CNT+1:2];
+         $instr[31:0] = $imem_rd_data[31:0];
+      ?$imem_rd_en
+         @1
+            $imem_rd_data[31:0] = /imem[$imem_rd_addr]$instr;
+      // Note: Because of the magic we are using for visualisation, if visualisation is enabled below,
+      //       be sure to avoid having unassigned signals (which you might be using for random inputs)
+      //       other than those specifically expected in the labs. You'll get strange errors for these.
 
    
    // Assert these to end simulation (before Makerchip cycle limit).
@@ -600,12 +615,14 @@ This coordinated effort allows the CPU to efficiently execute a program's instru
    //  o data memory
    //  o CPU visualization
    |cpu
-      //m4+imem(@1)    // Args: (read stage)
+      m4+imem(@1)    // Args: (read stage)
       //m4+rf(@1, @1)  // Args: (read stage, write stage) - if equal, no register bypass is required
       //m4+dmem(@4)    // Args: (read/write stage)
       //m4+myth_fpga(@0)  // Uncomment to run on fpga
 
-   //m4+cpu_viz(@4)    // For visualisation, argument should be at least equal to the last stage of CPU logic. @4 would work for all labs.
+   m4+cpu_viz(@4)    // For visualisation, argument should be at least equal to the last stage of CPU logic. @4 would work for all labs.
 \SV
    endmodule
+
+
 ```
