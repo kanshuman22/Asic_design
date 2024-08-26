@@ -1133,7 +1133,7 @@ $ ./pre_synth_sim.out
 
 ```
 
-We use a virtual environment to carry out our tasks . The provided tool is used to generate a .v file for the corresponding .tlv file. 
+We use a virtual environment to carry out our tasks .Through these commands we first setup the virtual environment. The provided tool is then used to generate a .v file for the corresponding .tlv file. Then using the testbench gtkwave simulation is used for analysis.
 
 ![image](https://github.com/user-attachments/assets/65b7e3cd-b5e6-4dd2-aa15-54433472e23e)
 
@@ -1158,4 +1158,7 @@ Corresponding Makerchip simulations
 
 
 ![image](https://github.com/user-attachments/assets/6c14e0b4-fbd8-4377-90b2-b10cc362208a)
+
+
+Gradual Increment can be seen . It is observed that both the waveforms reach the value 45 .
 
