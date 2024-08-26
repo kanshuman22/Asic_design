@@ -1089,7 +1089,73 @@ Code:
 We can observe the value of /xreg[14] it has a hexadecimal value of 2D which converts to 45 in decimal system which is the sum from 1 to 9.
 
 
+### Task 7
+
+We use the following commands:
+
+``` !bash
+
+$ sudo apt install make python3 python3 python3-pip git iverilog gtkwave
+
+$ cd ~
+
+$ sudo apt-get install python3-venv
+
+$ python3 -m venv .venv
+
+$ source ~/.venv/bin/activate
+
+$ pip3 install pyyaml click sandpiper-saas
+
+$ sudo apt install make python python3 python3-pip git iverilog gtkwave docker.io
+
+$ sudo chmod 666 /var/run/docker.sock
+
+$ cd ~
+
+$ pip3 install pyyaml click sandpiper-saas
+
+$ cd ~
+
+$ git clone https://github.com/manili/VSDBabySoC.git
+
+$ cd /home/vsduser/VSDBabySoC
+
+$ make pre_synth_sim
+
+
+$ sandpiper-saas -i ./src/module/rvmyth.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
+
+$ iverilog -o output/pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module
+$ cd output
+$ ./pre_synth_sim.out
+
+
+```
+
+We use a virtual environment to carry out our tasks . The provided tool is used to generate a .v file for the corresponding .tlv file. 
+
+![image](https://github.com/user-attachments/assets/65b7e3cd-b5e6-4dd2-aa15-54433472e23e)
 
 
 
+![image](https://github.com/user-attachments/assets/69916d23-bfde-4a0e-aee8-46d414dd3acd)
+
+
+
+GTKWave simulation waveforms for clock , reset and output
+![image](https://github.com/user-attachments/assets/d53aac1f-7b57-42a6-87e7-d397164d42b8)
+
+Corresponding Makerchip simulations
+
+
+![image](https://github.com/user-attachments/assets/d4778cc5-49d0-4c2c-add4-8b63140c2276)
+
+
+![image](https://github.com/user-attachments/assets/1518df93-cd04-4c23-a050-c1bed78b4dda)
+
+
+
+
+![image](https://github.com/user-attachments/assets/6c14e0b4-fbd8-4377-90b2-b10cc362208a)
 
