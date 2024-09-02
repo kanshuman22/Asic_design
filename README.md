@@ -1179,6 +1179,7 @@ gtkwave pre_synth_sim.vcd
 
 ![image](https://github.com/user-attachments/assets/55366e4a-e206-4b48-81e1-f5701514f572)
 
+Final waveforms:
 
 ![image](https://github.com/user-attachments/assets/b4913d8a-ed95-43ee-94e7-cd7365428fdd)
 
