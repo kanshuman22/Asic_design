@@ -1171,7 +1171,7 @@ We then use the following commands:
 iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
 ./pre_synth_sim.out
 gtkwave pre_synth_sim.vcd
-'''
+```
 
 ![image](https://github.com/user-attachments/assets/55366e4a-e206-4b48-81e1-f5701514f572)
 
