@@ -1164,6 +1164,15 @@ Gradual Increment can be seen . It is observed that both the waveforms reach the
 
 ## Task 8
 
+
+We clone the given repository. Following which we edit the top level verilog code as instructed.
+We then use the following commands:
+```!bash
+iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
+./pre_synth_sim.out
+gtkwave pre_synth_sim.vcd
+'''
+
 ![image](https://github.com/user-attachments/assets/55366e4a-e206-4b48-81e1-f5701514f572)
 
 
