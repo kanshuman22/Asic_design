@@ -1163,6 +1163,10 @@ Corresponding Makerchip simulations
 Gradual Increment can be seen . It is observed that both the waveforms reach the value 45 .
 
 ## Task 8
+Generating waveform for DAC and PLL for RISC-V processor
+
+Iverilog , gtkwave , yosys and opensta installed.
+![image](https://github.com/user-attachments/assets/a4dfd95a-c158-42c6-b020-940eedc29f5f)
 
 
 We clone the given repository. Following which we edit the top level verilog code as instructed.
