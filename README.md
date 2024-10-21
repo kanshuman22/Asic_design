@@ -1599,4 +1599,67 @@ endmodule
 
 ```
 
+## Day 3
+
+Optimizations
+There are two categories of optimizations: combinational and sequential. These optimizations are performed to create designs that are more efficient regarding area, power, and performance.
+
+Combinational Optimization
+
+    Constant Propagation (Direct Optimization)
+    Boolean Logic Optimization (using  K-Maps or Quine-McCluskey)
+
+
+Example 1:
+
+Verllog code:
+
+```
+module opt_check (input a , input b , output y);
+	assign y = a?b:0;
+endmodule
+
+```
+
+The code above infers a multiplexer, and because one of its inputs is permanently connected to ground, it will optimize to an AND gate
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check.v
+synth -top opt_check
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr opt_check_net.v
+```
+
+Netlist:
+![image](https://github.com/user-attachments/assets/efb615e0-b5f4-461a-acff-fe92a850986a)
+
+Netlist Code
+
+```
+
+module opt_check(a, b, y);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  input a;
+  wire a;
+  input b;
+  wire b;
+  output y;
+  wire y;
+  sky130_fd_sc_hd__and2_0 _3_ (
+    .A(_1_),
+    .B(_0_),
+    .X(_2_)
+  );
+  assign _1_ = b;
+  assign _0_ = a;
+  assign y = _2_;
+endmodule
+
+```
 
