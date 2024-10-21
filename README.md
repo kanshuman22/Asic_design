@@ -1213,5 +1213,27 @@ Yosys:
 ![image](https://github.com/user-attachments/assets/e7144b9d-42d2-475c-bfe1-f6e56783981f)
 
 
+![image](https://github.com/user-attachments/assets/f2bf31f5-5d21-4698-8edc-70ed3e751d71)
+
+Synthesis:
+```bash
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog good_mux.v
+synth -top good_mux
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verlog good_mux_netlist.v
+write_verilog -noattr good_mux_netlist.v
+
+```
+
+Output
+![image](https://github.com/user-attachments/assets/d249a67a-7724-48d8-b3c8-9f1ee6eef399)
+
+using the command "show":
+![image](https://github.com/user-attachments/assets/7b4fcdfb-0bfd-4bda-a8e9-05d24d5102bf)
+
+
 
 
