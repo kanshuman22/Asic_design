@@ -1322,3 +1322,21 @@ Netlist Code:
 
 ![image](https://github.com/user-attachments/assets/4045365c-e2be-4616-83dd-2e40a57d1c61)
 
+
+Sub module synthesis
+```bash
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_verilog multiple_modules.v 
+synth -top sub_module1
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+show
+
+```
+
+![image](https://github.com/user-attachments/assets/9823b114-50e3-4cf3-a678-5d7e9f0621b9)
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/ed60706f-b0fc-4cc2-b7ef-a89b9420f9b7)
+
