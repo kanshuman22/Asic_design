@@ -1183,3 +1183,17 @@ Final waveforms:
 
 ![image](https://github.com/user-attachments/assets/b4913d8a-ed95-43ee-94e7-cd7365428fdd)
 
+
+## Task 9
+
+### Day 1
+
+![day1lab1](https://github.com/user-attachments/assets/91916ffd-4bab-48b4-a7b3-9f802445e692)
+
+
+![day1lab2_1](https://github.com/user-attachments/assets/662254ff-352e-4868-8597-52474ab91bab)
+
+![day1lab2_2](https://github.com/user-attachments/assets/ead14d43-3657-4835-8590-ce4d3b089505)
+
+
+
