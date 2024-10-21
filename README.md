@@ -2217,4 +2217,186 @@ show
 write_verilog -noattr dff_const3_net.v
 ```
 
+![image](https://github.com/user-attachments/assets/410f5a45-097f-455a-a8a7-cbc094ecf8dc)
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/d5e30e4f-b400-4564-8006-83831c53461c)
+
+Netlist Code:
+
+```
+
+module dff_const3(clk, reset, q);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  wire _4_;
+  input clk;
+  wire clk;
+  output q;
+  wire q;
+  wire q1;
+  input reset;
+  wire reset;
+  sky130_fd_sc_hd__clkinv_1 _5_ (
+    .A(_2_),
+    .Y(_0_)
+  );
+  sky130_fd_sc_hd__clkinv_1 _6_ (
+    .A(_2_),
+    .Y(_1_)
+  );
+  sky130_fd_sc_hd__dfstp_2 _7_ (
+    .CLK(clk),
+    .D(q1),
+    .Q(q),
+    .SET_B(_3_)
+  );
+  sky130_fd_sc_hd__dfrtp_1 _8_ (
+    .CLK(clk),
+    .D(1'h1),
+    .Q(q1),
+    .RESET_B(_4_)
+  );
+  assign _2_ = reset;
+  assign _3_ = _0_;
+  assign _4_ = _1_;
+endmodule
+
+
+```
+
+Output on Gtkwave
+
+![image](https://github.com/user-attachments/assets/e77edaef-6186-4d05-8155-6a507aa853c5)
+
+Example 4
+
+code:
+
+```
+module dff_const4(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b1;
+	end
+else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+endmodule
+```
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const4.v
+synth -top dff_const4
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr dff_const4_net.v
+```
+
+![image](https://github.com/user-attachments/assets/d4b8891c-56ed-4e4b-9b25-ec736a0f94af)
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/8fb760f5-b77f-4321-9cc9-857e05046759)
+
+Netlist Code:
+
+```
+
+module dff_const4(clk, reset, q);
+  input clk;
+  wire clk;
+  output q;
+  wire q;
+  wire q1;
+  input reset;
+  wire reset;
+  assign q = 1'h1;
+  assign q1 = 1'h1;
+endmodule
+
+```
+
+Output on gtkwave
+
+![image](https://github.com/user-attachments/assets/fa287499-a1bd-44bb-aaf3-6255c4259788)
+
+Example 5
+
+code:
+
+```
+module dff_const5(input clk, input reset, output reg q);
+reg q1;
+always @(posedge clk, posedge reset)
+	begin
+		if(reset)
+		begin
+			q <= 1'b0;
+			q1 <= 1'b0;
+		end
+	else
+		begin
+			q1 <= 1'b1;
+			q <= q1;
+		end
+	end
+endmodule
+```
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const5.v
+synth -top dff_const5
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr dff_const5_net.v
+```
+
+![image](https://github.com/user-attachments/assets/3da5876e-9de6-47ff-b82e-d0bb80a46641)
+
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/980cdae5-7968-4704-a6ef-2a28145842b9)
+
+Netlist Code:
+
+```
+
+module dff_const5(input clk, input reset, output reg q);
+    reg q1;
+    always @(posedge clk, posedge reset) begin
+        if (reset) begin
+            q <= 1'b0;
+            q1 <= 1'b0;
+        end else begin
+            q1 <= 1'b1;
+            q <= q1;
+        end
+    end
+endmodule
+```
+
+Output on gtkwave
+
+![image](https://github.com/user-attachments/assets/6ca6ccac-c785-4155-bfd0-899a51f373d4)
+
+
 
