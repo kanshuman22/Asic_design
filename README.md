@@ -1331,7 +1331,7 @@ read_verilog multiple_modules.v
 synth -top sub_module1
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 show
-
+write_verilog -noattr multiple_modules_submodule1.v
 ```
 
 ![image](https://github.com/user-attachments/assets/9823b114-50e3-4cf3-a678-5d7e9f0621b9)
@@ -1339,4 +1339,12 @@ show
 Netlist:
 
 ![image](https://github.com/user-attachments/assets/ed60706f-b0fc-4cc2-b7ef-a89b9420f9b7)
+
+Netlist Code:
+![image](https://github.com/user-attachments/assets/b393e0de-d0e5-4a9e-82ca-06ff227369b2)
+
+
+Flip Flops
+
+Asynchronous Reset Flip Flop
 
