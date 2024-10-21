@@ -1202,8 +1202,15 @@ Code
 
 Testbench
 
-![image](https://github.com/user-attachments/assets/777d3e97-b364-42d9-b0f9-8a0e314ca2e7)
+![image](https://github.com/user-attachments/assets/777d3e97-b364-42d9-b0f9-8a0e314ca2e7)  
 
+
+Yosys:
+
+![image](https://github.com/user-attachments/assets/183a433c-6ff4-4c94-a36c-aacf88e27e30)
+
+
+![image](https://github.com/user-attachments/assets/e7144b9d-42d2-475c-bfe1-f6e56783981f)
 
 
 
