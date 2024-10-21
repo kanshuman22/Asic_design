@@ -1290,6 +1290,35 @@ endmodule
 
 ```
 
+Hierarchial Synthesis
+
+![image](https://github.com/user-attachments/assets/71862750-793c-4c70-aeab-ad3ed5bfa2b2)
 
 
+![image](https://github.com/user-attachments/assets/7e86841d-1d38-4eab-844a-581e2d55ac4d)
+
+
+Netlist:
+![image](https://github.com/user-attachments/assets/e92b5e9a-6d54-4e56-929e-a5240fe921c6)
+
+Netlist Code:
+![image](https://github.com/user-attachments/assets/5c11eb90-2273-4cf5-b5ce-0a3f31f9d721)
+
+
+Flat Synthesis
+
+![image](https://github.com/user-attachments/assets/f89a96df-f02f-48f1-870d-6264fb7480e3)
+
+![image](https://github.com/user-attachments/assets/c47734a6-4b66-4b76-8f92-35ea0eb5ab55)
+
+![image](https://github.com/user-attachments/assets/a443d7f5-0bd7-461a-8324-d76833b90487)
+
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/776e3513-4db4-4ea2-a9e1-35fe87fd5458)
+
+Netlist Code:
+
+![image](https://github.com/user-attachments/assets/4045365c-e2be-4616-83dd-2e40a57d1c61)
 
