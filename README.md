@@ -1250,7 +1250,45 @@ vim sky130_fd_sc_hd__tt_025C_1v80.lib
 
 ![image](https://github.com/user-attachments/assets/54630a1d-c85f-4091-a886-78413ca71bd1)
 
+The liberty (.lib) files contain PVT parameters (Process, Voltage, Temperature). Changes in these parameters can greatly influence circuit performance. 
 
+Multiple and designs
+
+![image](https://github.com/user-attachments/assets/847c954e-4385-4acb-ad8e-c0605d3fe19f)
+
+![image](https://github.com/user-attachments/assets/034e8386-2901-4279-83b1-8b432b6e454a)
+
+![image](https://github.com/user-attachments/assets/a5bb8b34-6ee1-42df-87b0-01438bdef7ef)
+
+Observations:
+
+    and2_0: Minimizes area but results in higher delay and lower power consumption.
+    and2_1: Occupies more area, offers reduced delay, and consumes more power.
+    and2_2: Has the largest area, incurs the greatest delay, and uses the highest amount of power.
+
+
+Hierarchial and Flat Synthesis
+
+Verilog Code 
+
+```bash
+module sub_module2 (input a, input b, output y);
+    assign y = a | b;
+endmodule
+
+module sub_module1 (input a, input b, output y);
+    assign y = a&b;
+endmodule
+
+
+module multiple_modules (input a, input b, input c , output y);
+    wire net1;
+    sub_module1 u1(.a(a),.b(b),.y(net1));  //net1 = a&b
+    sub_module2 u2(.a(net1),.b(c),.y(y));  //y = net1|c ,ie y = a&b + c;
+endmodule
+
+
+```
 
 
 
