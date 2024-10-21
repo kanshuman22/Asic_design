@@ -1348,3 +1348,144 @@ Flip Flops
 
 Asynchronous Reset Flip Flop
 
+Code:
+
+```bash
+module dff_asyncres ( input clk ,  input async_reset , input d , output reg q );
+always @ (posedge clk , posedge async_reset)
+begin
+	if(async_reset)
+		q <= 1'b0;
+	else	
+		q <= d;
+end
+endmodule
+
+```
+
+
+Commands to view simulation
+
+```bash
+iverilog dff_asyncres.v tb_dff_asyncres.v
+./a.out
+gtkwave tb_dff_asyncres.vcd
+
+```
+
+Output 
+
+![image](https://github.com/user-attachments/assets/afb94dbf-5095-4db3-bcbe-f4501b33ddd5)
+
+```bash
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_asyncres.v
+synth -top dff_asyncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+
+```
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/20af24c0-b176-416e-8159-231153c4832f)
+
+
+Synchronous Reset Flip Flop
+
+Code:
+
+```bash
+
+module dff_syncres ( input clk , input async_reset , input sync_reset , input d , output reg q );
+always @ (posedge clk )
+begin
+	if (sync_reset)
+		q <= 1'b0;
+	else	
+		q <= d;
+end
+endmodule
+
+```
+
+```bash
+
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+gtkwave tb_dff_syncres.vcd
+
+```
+
+Output:
+![image](https://github.com/user-attachments/assets/0a7dbe68-c193-4160-92f5-4f7365e13de7)
+
+
+```bash
+
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_syncres.v
+synth -top dff_syncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+
+```
+
+![image](https://github.com/user-attachments/assets/c2e0fa3f-af9a-476a-a240-6213ace9cf24)
+
+
+Netlist:
+![image](https://github.com/user-attachments/assets/062e2ad9-1cfe-4945-8bbf-9180ef1bea07)
+
+
+Aysnchronous set flip flop
+
+Code:
+
+```bash
+
+module dff_async_set ( input clk ,  input async_set , input d , output reg q );
+always @ (posedge clk , posedge async_set)
+begin
+	if(async_set)
+		q <= 1'b1;
+	else	
+		q <= d;
+end
+endmodule
+
+```
+Output:
+
+![image](https://github.com/user-attachments/assets/76629ffa-7b15-4042-b0f4-2db7075954a1)
+
+Commands to run
+
+```bash
+
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_async_set.v
+synth -top dff_async_set
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+
+```
+
+![image](https://github.com/user-attachments/assets/627ab794-a4f6-4162-bc8f-e47c645a7188)
+
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/a23f3c83-99a3-4c4e-8eff-eae74b62efbf)
+
+
+
+Optimizations:
+
+
