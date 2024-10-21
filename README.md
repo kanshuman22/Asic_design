@@ -2512,3 +2512,128 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 write_verilog -noattr counter_opt_net.v
 ```
+
+![image](https://github.com/user-attachments/assets/bd5a71a4-829a-4b30-be35-ec7aeb092033)
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/5a448bf8-5c67-4130-ad9a-dd99964ae158)
+
+Netlist Code:
+
+```
+
+module counter_opt(clk, reset, q);
+  wire _00_;
+  wire _01_;
+  wire _02_;
+  wire _03_;
+  wire _04_;
+  wire _05_;
+  wire _06_;
+  wire _07_;
+  wire _08_;
+  wire _09_;
+  wire _10_;
+  wire _11_;
+  wire _12_;
+  wire _13_;
+  wire [2:0] _14_;
+  wire [2:0] _15_;
+  wire _16_;
+  wire _17_;
+  wire _18_;
+  input clk;
+  wire clk;
+  wire [2:0] count;
+  output q;
+  wire q;
+  input reset;
+  wire reset;
+  sky130_fd_sc_hd__clkinv_1 _19_ (
+    .A(_08_),
+    .Y(_02_)
+  );
+  sky130_fd_sc_hd__clkinv_1 _20_ (
+    .A(_13_),
+    .Y(_05_)
+  );
+  sky130_fd_sc_hd__nor3b_1 _21_ (
+    .A(_08_),
+    .B(_09_),
+    .C_N(_10_),
+    .Y(_12_)
+  );
+  sky130_fd_sc_hd__nand2_1 _22_ (
+    .A(_08_),
+    .B(_09_),
+    .Y(_11_)
+  );
+  sky130_fd_sc_hd__xor2_1 _23_ (
+    .A(_08_),
+    .B(_09_),
+    .X(_03_)
+  );
+  sky130_fd_sc_hd__xnor2_1 _24_ (
+    .A(_10_),
+    .B(_11_),
+    .Y(_04_)
+  );
+  sky130_fd_sc_hd__clkinv_1 _25_ (
+    .A(_13_),
+    .Y(_06_)
+  );
+  sky130_fd_sc_hd__clkinv_1 _26_ (
+    .A(_13_),
+    .Y(_07_)
+  );
+  sky130_fd_sc_hd__dfrtp_1 _27_ (
+    .CLK(clk),
+    .D(_14_[0]),
+    .Q(count[0]),
+    .RESET_B(_16_)
+  );
+  sky130_fd_sc_hd__dfrtp_1 _28_ (
+    .CLK(clk),
+    .D(_15_[1]),
+    .Q(count[1]),
+    .RESET_B(_17_)
+  );
+  sky130_fd_sc_hd__dfrtp_1 _29_ (
+    .CLK(clk),
+    .D(_15_[2]),
+    .Q(count[2]),
+    .RESET_B(_18_)
+  );
+  assign _15_[0] = _14_[0];
+  assign _14_[2:1] = count[2:1];
+  assign _08_ = count[0];
+  assign _14_[0] = _02_;
+  assign _09_ = count[1];
+  assign _10_ = count[2];
+  assign q = _12_;
+  assign _15_[1] = _03_;
+  assign _15_[2] = _04_;
+  assign _13_ = reset;
+  assign _16_ = _05_;
+  assign _17_ = _06_;
+  assign _18_ = _07_;
+endmodule
+
+```
+
+Output on gtkwave
+
+![image](https://github.com/user-attachments/assets/ac7a640b-dd34-47a7-888b-c5a93ad594b6)
+
+
+## Day 4
+
+Gate Level Simulation (GLS) is an essential part of the verification process for digital circuits. It entails simulating the synthesized netlist, which serves as a lower-level representation of the design, using a testbench to confirm its logical accuracy and timing characteristics. By comparing the simulated outputs with the expected results, GLS ensures that the synthesis process has not introduced any errors and that the design fulfills its performance criteria.
+
+
+Sensitivity lists are essential for ensuring correct circuit behavior. An incomplete sensitivity list can result in unexpected latches. Additionally, blocking and non-blocking assignments in always blocks have distinct execution behaviors. Misusing blocking assignments can inadvertently lead to latches, resulting in discrepancies between synthesis and simulation. To prevent these problems, it’s important to thoroughly analyze circuit behavior and ensure that the sensitivity list and assignments match the intended functionality.
+
+![image](https://github.com/user-attachments/assets/bd73c591-a8e9-4798-a9ea-2e7160eecdee)
+
+
