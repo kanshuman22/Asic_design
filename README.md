@@ -1232,7 +1232,25 @@ Output
 ![image](https://github.com/user-attachments/assets/d249a67a-7724-48d8-b3c8-9f1ee6eef399)
 
 using the command "show":
+
+
 ![image](https://github.com/user-attachments/assets/7b4fcdfb-0bfd-4bda-a8e9-05d24d5102bf)
+
+![image](https://github.com/user-attachments/assets/e387bdcb-6292-45e4-8693-7ed83e50a4c3)
+
+## Day 2
+
+Contents inside .lib file
+
+```bash
+cd ../lib
+vim sky130_fd_sc_hd__tt_025C_1v80.lib
+
+```
+
+![image](https://github.com/user-attachments/assets/54630a1d-c85f-4091-a886-78413ca71bd1)
+
+
 
 
 
