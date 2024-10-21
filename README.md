@@ -1193,7 +1193,18 @@ Final waveforms:
 
 ![day1lab2_1](https://github.com/user-attachments/assets/662254ff-352e-4868-8597-52474ab91bab)
 
+
+GTKwave simulation results:
 ![day1lab2_2](https://github.com/user-attachments/assets/ead14d43-3657-4835-8590-ce4d3b089505)
+
+Code
+![image](https://github.com/user-attachments/assets/b2d55509-c94a-4855-8177-76cedce8a4f5)
+
+Testbench
+
+![image](https://github.com/user-attachments/assets/777d3e97-b364-42d9-b0f9-8a0e314ca2e7)
+
+
 
 
 
