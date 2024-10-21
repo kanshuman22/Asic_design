@@ -2636,4 +2636,257 @@ Sensitivity lists are essential for ensuring correct circuit behavior. An incomp
 
 ![image](https://github.com/user-attachments/assets/bd73c591-a8e9-4798-a9ea-2e7160eecdee)
 
+GLS Simulation
 
+Example 1
+
+code:
+
+```
+module ternary_operator_mux (input i0 , input i1 , input sel , output y);
+assign y = sel?i1:i0;
+endmodule
+```
+
+Simulation:
+
+```
+iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+```
+
+Gtkwave
+
+![image](https://github.com/user-attachments/assets/3fa87094-74e2-4b51-88a0-5db5e2b5a5eb)
+
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+read_verilog ternary_operator_mux.v
+synth -top ternary_operator_mux
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+show
+write_verilog -noattr ternary_operator_mux_net.v
+```
+
+![image](https://github.com/user-attachments/assets/3e4953df-4f90-44d1-bbf3-921142c809d8)
+
+
+Netlist
+
+![image](https://github.com/user-attachments/assets/ce656734-7f7e-4600-86d1-1b49c1a440f1)
+
+Netlist code:
+
+```
+
+module ternary_operator_mux(i0, i1, sel, y);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  input i0;
+  wire i0;
+  input i1;
+  wire i1;
+  input sel;
+  wire sel;
+  output y;
+  wire y;
+  sky130_fd_sc_hd__mux2_1 _4_ (
+    .A0(_0_),
+    .A1(_1_),
+    .S(_2_),
+    .X(_3_)
+  );
+  assign _0_ = i0;
+  assign _1_ = i1;
+  assign _2_ = sel;
+  assign y = _3_;
+endmodule
+
+
+```
+
+Gate level simulation
+
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+```
+
+![image](https://github.com/user-attachments/assets/2ed1ceee-0a8d-47d8-a5e6-65727b358b4e)
+
+Example 2
+
+Code:
+
+```
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+always @ (sel)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+```
+
+GTKwave simulation
+
+```
+iverilog bad_mux.v tb_bad_mux.v
+./a.out
+gtkwave tb_bad_mux.vcd
+```
+
+![image](https://github.com/user-attachments/assets/2924ee43-fde1-4bf1-a483-d9c9953fd204)
+
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+read_verilog bad_mux.v
+synth -top bad_mux
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+show
+write_verilog -noattr bad_mux_net.v
+```
+
+![image](https://github.com/user-attachments/assets/51a6100f-ca43-490e-8332-135cafda42d5)
+
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/5c7eab33-b77a-4de7-91ec-4db536c65448)
+
+
+```
+
+module bad_mux(i0, i1, sel, y);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  input i0;
+  wire i0;
+  input i1;
+  wire i1;
+  input sel;
+  wire sel;
+  output y;
+  wire y;
+  sky130_fd_sc_hd__mux2_1 _4_ (
+    .A0(_0_),
+    .A1(_1_),
+    .S(_2_),
+    .X(_3_)
+  );
+  assign _0_ = i0;
+  assign _1_ = i1;
+  assign _2_ = sel;
+  assign y = _3_;
+endmodule
+```
+
+Gate level simulation:
+
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v
+./a.out
+gtkwave tb_bad_mux.vcd
+```
+
+![image](https://github.com/user-attachments/assets/0962c542-cd23-4029-a77b-4cfd9cb7848e)
+
+
+In this instance, there is a mismatch between synthesis and simulation. During the synthesis process, Yosys has corrected the sensitivity list error.
+
+
+### Synthesis-Simulation Mismatch for Blocking Assignments
+
+code:
+
+```
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+begin
+d = x & c;
+x = a | b;
+end
+endmodule
+```
+
+GTKwave Simulation:
+
+```
+iverilog blocking_caveat.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.vcd
+```
+
+![image](https://github.com/user-attachments/assets/b6570128-3ba7-49df-bcee-fe6fd9786377)
+
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+read_verilog blocking_caveat.v
+synth -top blocking_caveat
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+show
+write_verilog -noattr blocking_caveat_net.v
+```
+![image](https://github.com/user-attachments/assets/2becff78-51b0-40d7-9107-85c32bf1cdd6)
+
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/000fd2e1-432d-4b92-8fd4-3a43b2e95b5b)
+
+
+```
+
+module blocking_caveat(a, b, c, d);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  wire _4_;
+  input a;
+  wire a;
+  input b;
+  wire b;
+  input c;
+  wire c;
+  output d;
+  wire d;
+  sky130_fd_sc_hd__o21a_1 _5_ (
+    .A1(_2_),
+    .A2(_1_),
+    .B1(_3_),
+    .X(_4_)
+  );
+  assign _2_ = b;
+  assign _1_ = a;
+  assign _3_ = c;
+  assign d = _4_;
+endmodule
+
+```
+
+Gate Level Simulation
+```
+iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.vcd
+```
+
+![image](https://github.com/user-attachments/assets/babf0564-8707-4a59-8cb3-ea4518a2ff4c)
+
+There is a mismatch between synthesis and simulation. During the synthesis process, Yosys has fixed the latch error.
