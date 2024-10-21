@@ -2398,5 +2398,117 @@ Output on gtkwave
 
 ![image](https://github.com/user-attachments/assets/6ca6ccac-c785-4155-bfd0-899a51f373d4)
 
+Sequential logic optimizations for unused outputs
+
+Example 1
+code:
+
+```
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = count[0];
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+endmodule
+```
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog counter_opt.v
+synth -top counter_opt
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr counter_opt_net.v
+```
+
+![image](https://github.com/user-attachments/assets/916fe77e-5061-4200-8b17-642e869d4c9c)
 
 
+Netlist:
+
+![image](https://github.com/user-attachments/assets/2f823b1e-50dc-4454-9f49-b72eaaa60e14)
+
+
+Netlist Code:
+
+```
+
+module counter_opt(clk, reset, q);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  wire [2:0] _4_;
+  wire _5_;
+  input clk;
+  wire clk;
+  wire [2:0] count;
+  output q;
+  wire q;
+  input reset;
+  wire reset;
+  sky130_fd_sc_hd__clkinv_1 _6_ (
+    .A(_2_),
+    .Y(_0_)
+  );
+  sky130_fd_sc_hd__clkinv_1 _7_ (
+    .A(_3_),
+    .Y(_1_)
+  );
+  sky130_fd_sc_hd__dfrtp_1 _8_ (
+    .CLK(clk),
+    .D(_4_[0]),
+    .Q(count[0]),
+    .RESET_B(_5_)
+  );
+  assign _4_[2:1] = count[2:1];
+  assign q = count[0];
+  assign _2_ = count[0];
+  assign _4_[0] = _0_;
+  assign _3_ = reset;
+  assign _5_ = _1_;
+endmodule
+
+```
+
+
+Output on gtkwave
+
+![image](https://github.com/user-attachments/assets/c69eb90c-74ad-4e48-8a2c-daccbbf21e00)
+
+
+Modified counter :
+
+code:
+
+```
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = {count[2:0]==3'b100};
+always @(posedge clk ,posedge reset)
+begin
+if(reset)
+	count <= 3'b000;
+else
+	count <= count + 1;
+end
+endmodule
+```
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog counter_opt.v
+synth -top counter_opt
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr counter_opt_net.v
+```
