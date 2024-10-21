@@ -1872,4 +1872,349 @@ flatten
 show
 write_verilog -noattr multiple_module_opt_net.v
 ```
+![image](https://github.com/user-attachments/assets/ce32aa11-15c7-4c9b-9278-7bd4d1f0699c)
+
+
+
+Netlist:
+![image](https://github.com/user-attachments/assets/8d55a64a-15fd-4ef9-a623-4ff380512dee)
+
+Netlist Code:
+
+
+```
+
+module multiple_module_opt(a, b, c, d, y);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  wire _4_;
+  wire _5_;
+  wire _6_;
+  wire _7_;
+  wire \U1.a ;
+  wire \U1.b ;
+  wire \U1.y ;
+  input a;
+  wire a;
+  input b;
+  wire b;
+  input c;
+  wire c;
+  input d;
+  wire d;
+  wire n1;
+  output y;
+  wire y;
+  sky130_fd_sc_hd__a21o_1 _8_ (
+    .A1(_3_),
+    .A2(_1_),
+    .B1(_2_),
+    .X(_4_)
+  );
+  sky130_fd_sc_hd__and2_0 _9_ (
+    .A(_6_),
+    .B(_5_),
+    .X(_7_)
+  );
+  assign _3_ = n1;
+  assign _1_ = b;
+  assign _2_ = c;
+  assign y = _4_;
+  assign _6_ = \U1.b ;
+  assign _5_ = \U1.a ;
+  assign \U1.y  = _7_;
+  assign \U1.a  = a;
+  assign \U1.b  = 1'h1;
+  assign n1 = \U1.y ;
+endmodule
+```
+
+Example 6
+
+code:
+
+```
+module sub_module(input a , input b , output y);
+	assign y = a & b;
+endmodule
+
+module multiple_module_opt2(input a , input b , input c , input d , output y);
+		wire n1,n2,n3;
+	sub_module U1 (.a(a) , .b(1'b0) , .y(n1));
+	sub_module U2 (.a(b), .b(c) , .y(n2));
+	sub_module U3 (.a(n2), .b(d) , .y(n3));
+	sub_module U4 (.a(n3), .b(n1) , .y(y));
+endmodule
+```
+After optimizing design becomes Y=0
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_module_opt2.v
+synth -top multiple_module_opt2
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+flatten
+show
+write_verilog -noattr multiple_module_opt2_net.v
+```
+![image](https://github.com/user-attachments/assets/a8fbd81c-f2ca-402f-8f27-96f4a2edb720)
+
+
+Netlist:
+
+
+![image](https://github.com/user-attachments/assets/698f9c14-831d-4fb0-8e1b-decb679796fd)
+
+Netlist Code:
+
+```
+	
+module multiple_module_opt2(a, b, c, d, y);
+  wire _00_;
+  wire _01_;
+  wire _02_;
+  wire _03_;
+  wire _04_;
+  wire _05_;
+  wire _06_;
+  wire _07_;
+  wire _08_;
+  wire _09_;
+  wire _10_;
+  wire _11_;
+  wire \U1.a ;
+  wire \U1.b ;
+  wire \U1.y ;
+  wire \U2.a ;
+  wire \U2.b ;
+  wire \U2.y ;
+  wire \U3.a ;
+  wire \U3.b ;
+  wire \U3.y ;
+  wire \U4.a ;
+  wire \U4.b ;
+  wire \U4.y ;
+  input a;
+  wire a;
+  input b;
+  wire b;
+  input c;
+  wire c;
+  input d;
+  wire d;
+  wire n1;
+  wire n2;
+  wire n3;
+  output y;
+  wire y;
+  sky130_fd_sc_hd__and2_0 _12_ (
+    .A(_01_),
+    .B(_00_),
+    .X(_02_)
+  );
+  sky130_fd_sc_hd__and2_0 _13_ (
+    .A(_04_),
+    .B(_03_),
+    .X(_05_)
+  );
+  sky130_fd_sc_hd__and2_0 _14_ (
+    .A(_07_),
+    .B(_06_),
+    .X(_08_)
+  );
+  sky130_fd_sc_hd__and2_0 _15_ (
+    .A(_10_),
+    .B(_09_),
+    .X(_11_)
+  );
+  assign _10_ = \U4.b ;
+  assign _09_ = \U4.a ;
+  assign \U4.y  = _11_;
+  assign \U4.a  = n3;
+  assign \U4.b  = n1;
+  assign y = \U4.y ;
+  assign _07_ = \U3.b ;
+  assign _06_ = \U3.a ;
+  assign \U3.y  = _08_;
+  assign \U3.a  = n2;
+  assign \U3.b  = d;
+  assign n3 = \U3.y ;
+  assign _04_ = \U2.b ;
+  assign _03_ = \U2.a ;
+  assign \U2.y  = _05_;
+  assign \U2.a  = b;
+  assign \U2.b  = c;
+  assign n2 = \U2.y ;
+  assign _01_ = \U1.b ;
+  assign _00_ = \U1.a ;
+  assign \U1.y  = _02_;
+  assign \U1.a  = a;
+  assign \U1.b  = 1'h0;
+  assign n1 = \U1.y ;
+endmodule
+
+```
+
+Sequential Logic Optimizations
+
+Example 1
+
+code:
+
+```
+module dff_const1(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b0;
+	else
+		q <= 1'b1;
+end
+endmodule
+```
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const1.v
+synth -top dff_const1
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr dff_const1_net.v
+```
+
+![image](https://github.com/user-attachments/assets/7cbc66d9-0696-4182-a800-94076b616775)
+
+
+Netlist 
+
+![image](https://github.com/user-attachments/assets/63a60b54-897f-4cdd-818b-1b5545630c7a)
+
+Netlist Code:
+
+```
+
+module dff_const1(clk, reset, q);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  input clk;
+  wire clk;
+  output q;
+  wire q;
+  input reset;
+  wire reset;
+  sky130_fd_sc_hd__clkinv_1 _3_ (
+    .A(_1_),
+    .Y(_0_)
+  );
+  sky130_fd_sc_hd__dfrtp_1 _4_ (
+    .CLK(clk),
+    .D(1'h1),
+    .Q(q),
+    .RESET_B(_2_)
+  );
+  assign _1_ = reset;
+  assign _2_ = _0_;
+endmodule
+
+```
+Output on gtkwave
+
+![image](https://github.com/user-attachments/assets/649ad362-0f76-4c32-86f9-78b456408781)
+
+
+
+Example 2
+
+code:
+
+```
+module dff_const2(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b1;
+	else
+		q <= 1'b1;
+end
+endmodule
+```
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const2.v
+synth -top dff_const2
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr dff_const2_net.v
+```
+
+![image](https://github.com/user-attachments/assets/218eefb8-44cf-4e4c-aced-591f737dd41b)
+
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/9c65e766-4cdb-4179-98ee-664fbca1c57c)
+
+Netlist Code:
+
+```
+
+module dff_const2(clk, reset, q);
+  input clk;
+  wire clk;
+  output q;
+  wire q;
+  input reset;
+  wire reset;
+  assign q = 1'h1;
+endmodule
+
+```
+Output on gtkwave
+![image](https://github.com/user-attachments/assets/3bd8643b-c400-4fb3-bd27-253b3aa84825)
+
+Example 3
+
+code:
+
+```
+module dff_const3(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+endmodule
+```
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_const3.v
+synth -top dff_const3
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr dff_const3_net.v
+```
+
 
