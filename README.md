@@ -1662,4 +1662,214 @@ module opt_check(a, b, y);
 endmodule
 
 ```
+Example 2
+
+```
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
+endmodule
+```
+In this scenario, the multiplexer’s output is consistently tied to logic 1, leading to an optimization that results in an OR gate. Importantly, the OR gate is implemented using a NAND configuration because NAND designs use stacked NMOS transistors, whereas NOR gates require stacked PMOS transistors. This design choice is commonly made to improve performance, as NMOS transistors generally exhibit lower resistance than PMOS transistors.
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check2.v
+synth -top opt_check2
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr opt_check2_net.v
+```
+![image](https://github.com/user-attachments/assets/b433db36-07f2-479e-a240-4a7e73e1e9ad)
+
+
+Netlist:
+![image](https://github.com/user-attachments/assets/ce0c6611-3f85-4ffb-a932-fb6f6aaffaaf)
+
+Netlist Code:
+```
+
+module opt_check2(a, b, y);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  input a;
+  wire a;
+  input b;
+  wire b;
+  output y;
+  wire y;
+  sky130_fd_sc_hd__or2_0 _3_ (
+    .A(_0_),
+    .B(_1_),
+    .X(_2_)
+  );
+  assign _0_ = a;
+  assign _1_ = b;
+  assign y = _2_;
+endmodule
+
+```
+
+Example 3
+
+code:
+
+```
+module opt_check3 (input a , input b, input c , output y);
+	assign y = a?(c?b:0):0;
+endmodule
+```
+Post optimization, the design simplifies to a 3-input AND gate.
+
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check3.v
+synth -top opt_check3
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr opt_check3_net.v
+```
+
+
+![image](https://github.com/user-attachments/assets/8465bd3e-2f81-4c15-8d3e-d57d5bb5e227)
+
+
+Netlist:
+![image](https://github.com/user-attachments/assets/1b884218-e142-4d2d-889a-9ada81595354)
+
+Netlist Code:
+
+```
+
+module opt_check3(a, b, c, y);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  wire _4_;
+  input a;
+  wire a;
+  input b;
+  wire b;
+  input c;
+  wire c;
+  output y;
+  wire y;
+  sky130_fd_sc_hd__and3_1 _5_ (
+    .A(_2_),
+    .B(_3_),
+    .C(_1_),
+    .X(_4_)
+  );
+  assign _2_ = b;
+  assign _3_ = c;
+  assign _1_ = a;
+  assign y = _4_;
+endmodule
+
+```
+Example 4
+
+code:
+
+```
+module opt_check4 (input a , input b, input c , output y);
+	assign y = a?(c?b:0):0;
+endmodule
+```
+Post optimization, the design simplifies to a 2-input XNOR gate.
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check4.v
+synth -top opt_check4
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr opt_check4_net.v
+```
+
+![image](https://github.com/user-attachments/assets/d513fc18-8264-40a3-bb58-1b8ad0b3423c)
+
+
+Netlist:
+![image](https://github.com/user-attachments/assets/babd5f23-5953-42a3-9a60-745fab313b2d)
+
+
+Netlist Code:
+
+```
+
+module opt_check4(a, b, c, y);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  wire _4_;
+  wire _5_;
+  wire _6_;
+  input a;
+  wire a;
+  input b;
+  wire b;
+  input c;
+  wire c;
+  output y;
+  wire y;
+  sky130_fd_sc_hd__xnor2_1 _7_ (
+    .A(_5_),
+    .B(_3_),
+    .Y(_6_)
+  );
+  assign _5_ = c;
+  assign _3_ = a;
+  assign _4_ = b;
+  assign y = _6_;
+endmodule
+
+```
+
+Example 5
+
+code:
+
+```
+module sub_module1(input a , input b , output y);
+ assign y = a & b;
+endmodule
+
+module sub_module2(input a , input b , output y);
+ assign y = a^b;
+endmodule
+
+module multiple_module_opt(input a , input b , input c , input d , output y);
+wire n1,n2,n3;
+
+sub_module1 U1 (.a(a) , .b(1'b1) , .y(n1));
+sub_module2 U2 (.a(n1), .b(1'b0) , .y(n2));
+sub_module2 U3 (.a(b), .b(d) , .y(n3));
+
+assign y = c | (b & n1); 
+
+endmodule
+```
+Post optimization, the design simplifies to a AND OR gate.
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_module_opt.v
+synth -top multiple_module_opt
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+flatten
+show
+write_verilog -noattr multiple_module_opt_net.v
+```
 
