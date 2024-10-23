@@ -2898,6 +2898,20 @@ The src folder from  BabySoC folder is copied inside sky130RTLDesignAndSynthesis
 
 Go to this path : ~/Desktop/asic/VLSI/sky130RTLDesignAndSynthesisWorkshop/src/module
 
+Commands
+
+```
+yosys
+read_liberty -lib ~/Desktop/asic/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog clk_gate.v
+read_verilog rvmyth.v
+synth -top rvmyth
+abc -liberty ~/Desktop/asic/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog -noattr rvmyth_net.v
+vim rvmyth_net.v
+
+```
+
 
 Synthesis
 
@@ -2919,4 +2933,28 @@ Simulation
 Output waveform
 
 ![image](https://github.com/user-attachments/assets/dda383b5-80bb-485b-a916-fa6fce2fd5a4)
+
+![image](https://github.com/user-attachments/assets/7bfd2f84-7443-45a7-8180-7fc01cfeaec0)
+
+
+RTL Simulations
+
+```
+
+cd BabySoC
+
+iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
+
+./pre_synth_sim.out
+
+gtkwave pre_synth_sim.vcd
+
+
+```
+
+![image](https://github.com/user-attachments/assets/929c372e-fab0-461a-8cf9-5aa6983491fb)
+
+![image](https://github.com/user-attachments/assets/19f77bdd-1970-43e1-9713-722b08125ee0)
+
+![image](https://github.com/user-attachments/assets/3bf64c59-8304-4d02-aa65-868780d6f2aa)
 
