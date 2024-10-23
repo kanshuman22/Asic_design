@@ -2927,6 +2927,8 @@ Netlist File
 
 ![image](https://github.com/user-attachments/assets/5620c3b2-7c9b-42ce-88d5-d85a33dc86a3)
 
+![image](https://github.com/user-attachments/assets/6e014370-d0fb-42fd-b7a9-87f1be80c07d)
+
 
 Simulation
 
