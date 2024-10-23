@@ -2898,6 +2898,9 @@ The src folder from  BabySoC folder is copied inside sky130RTLDesignAndSynthesis
 
 Go to this path : ~/Desktop/asic/VLSI/sky130RTLDesignAndSynthesisWorkshop/src/module
 
+
+Synthesis
+
 Commands
 
 ```
@@ -2913,7 +2916,7 @@ vim rvmyth_net.v
 ```
 
 
-Synthesis
+
 
 ![image](https://github.com/user-attachments/assets/0c857ce3-2690-4681-b321-f7f9756c03ba)  
 
