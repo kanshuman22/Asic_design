@@ -2890,3 +2890,33 @@ gtkwave tb_blocking_caveat.vcd
 ![image](https://github.com/user-attachments/assets/babf0564-8707-4a59-8cb3-ea4518a2ff4c)
 
 There is a mismatch between synthesis and simulation. During the synthesis process, Yosys has fixed the latch error.
+
+
+## Task 10
+
+The src folder from  BabySoC folder is copied inside sky130RTLDesignAndSynthesisWorkshop folder in the VLSI folder from previous lab.
+
+Go to this path : ~/Desktop/asic/VLSI/sky130RTLDesignAndSynthesisWorkshop/src/module
+
+
+Synthesis
+
+![image](https://github.com/user-attachments/assets/0c857ce3-2690-4681-b321-f7f9756c03ba)  
+
+![image](https://github.com/user-attachments/assets/e814e356-727c-4ac5-96d1-6d6e1ad0f526)
+
+
+Netlist File
+
+![image](https://github.com/user-attachments/assets/5620c3b2-7c9b-42ce-88d5-d85a33dc86a3)
+
+
+Simulation
+
+![image](https://github.com/user-attachments/assets/52be6fed-0ae4-4d34-8962-2e14abeda04a)
+
+
+Output waveform
+
+![image](https://github.com/user-attachments/assets/dda383b5-80bb-485b-a916-fa6fce2fd5a4)
+
