@@ -3093,3 +3093,11 @@ This table summarizes the Worst Negative Slack (WNS) and Worst Hold Slack (WHS) 
 | sky130_fd_sc_hd__tt_100C_1v80.lib                   | -5.1171  | -0.5477  |
 
 
+
+Graphs:
+
+![image](https://github.com/user-attachments/assets/d8e80e19-45d4-46b3-b3ea-b27ede26f015)
+
+
+![image](https://github.com/user-attachments/assets/58764ded-8d4b-4404-aa5b-b690eae4103a)
+
