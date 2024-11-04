@@ -3063,3 +3063,33 @@ Constraint File:
 
 
 
+### Table
+
+This table summarizes the Worst Negative Slack (WNS) and Worst Hold Slack (WHS) for various library files.
+
+| Library File                                      | WNS      | WHS      |
+|---------------------------------------------------|----------|----------|
+| sky130_fd_sc_hd__ff_100C_1v65.lib                 | -3.1656  | -0.6095  |
+| sky130_fd_sc_hd__ff_100C_1v95.lib                 | -1.3069  | -0.6696  |
+| sky130_fd_sc_hd__ff_n40C_1v56.lib                 | -2.8298  | -0.5478  |
+| sky130_fd_sc_hd__ff_n40C_1v65.lib                 | -1.7174  | -0.5885  |
+| sky130_fd_sc_hd__ff_n40C_1v76.lib                 | -0.7958  | -0.6248  |
+| sky130_fd_sc_hd__ff_n40C_1v95.lib                 | 0.1027   | -0.6686  |
+| sky130_fd_sc_hd__ff_n40C_1v95_ccsnoise.lib.part1  | 0.1027   | -0.6686  |
+| sky130_fd_sc_hd__ff_n40C_1v95_ccsnoise.lib.part2  | 0.1027   | -0.6686  |
+| sky130_fd_sc_hd__ff_n40C_1v95_ccsnoise.lib.part3  | 0.1027   | -0.6686  |
+| sky130_fd_sc_hd__ss_100C_1v40.lib                  | -25.8686 | 0.1341   |
+| sky130_fd_sc_hd__ss_100C_1v60.lib                  | -15.6804 | -0.1459  |
+| sky130_fd_sc_hd__ss_n40C_1v28.lib                  | -96.7482 | 1.0337   |
+| sky130_fd_sc_hd__ss_n40C_1v35.lib                  | -60.8662 | 0.5698   |
+| sky130_fd_sc_hd__ss_n40C_1v40.lib                  | -46.3413 | 0.3456   |
+| sky130_fd_sc_hd__ss_n40C_1v44.lib                  | -38.9064 | 0.2077   |
+| sky130_fd_sc_hd__ss_n40C_1v60.lib                  | -19.5937 | -0.1248  |
+| sky130_fd_sc_hd__ss_n40C_1v60_ccsnoise.lib.part1   | -19.5937 | -0.1248  |
+| sky130_fd_sc_hd__ss_n40C_1v60_ccsnoise.lib.part2   | -19.5937 | -0.1248  |
+| sky130_fd_sc_hd__ss_n40C_1v60_ccsnoise.lib.part3   | -19.5937 | -0.1248  |
+| sky130_fd_sc_hd__ss_n40C_1v76.lib                  | -11.1903 | -0.3445  |
+| sky130_fd_sc_hd__tt_025C_1v80.lib                   | -4.2009  | -0.5455  |
+| sky130_fd_sc_hd__tt_100C_1v80.lib                   | -5.1171  | -0.5477  |
+
+
