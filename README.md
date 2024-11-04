@@ -3056,6 +3056,10 @@ report_checks -path_delay min_max -fields {nets cap slew input_pins fanout} -dig
 }
 
 ```
+Commands
+
+![image](https://github.com/user-attachments/assets/03ad66d9-3458-4faa-8155-8b2f08556d61)
+
 
 Constraint File:
 
@@ -3100,4 +3104,5 @@ Graphs:
 
 
 ![image](https://github.com/user-attachments/assets/58764ded-8d4b-4404-aa5b-b690eae4103a)
+
 
