@@ -3525,7 +3525,7 @@ Timing Characterization
 Power Characterization
 Noise Characterization
 
-### Timing Parameters ( Aligned Table )
+#### Timing Parameters 
 
 | Timing Definition     | Value       |
 |-----------------------|-------------|
@@ -3538,3 +3538,15 @@ Noise Characterization
 | out_rise_thr          | 50%         |
 | out_fall_thr          | 50%         |
 
+Propagation delay 
+
+It describes the time required for an input signal change to reach 50% of its final value, which then causes the output signal to similarly reach 50% of its final value in a digital circuit.
+
+Rise Delay = time(out-fall-thr) − time(in-rise-thr) 
+
+Transistion time
+
+Transition time is the duration it takes for a signal to change between different states, typically measured from 10% to 90% or 20% to 80% of the signal’s voltage range.
+
+Fall Transition Time = time(slew-high-fall-thr) − time(slew-low-fall-thr)
+Rise Transition Time = time(slew-high-rise-thr) − time(slew-low-rise-thr) 
