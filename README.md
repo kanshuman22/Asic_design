@@ -3441,10 +3441,9 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 
 ![image](https://github.com/user-attachments/assets/d3f72d5b-ccff-4638-9f19-3140beef5223)
 
+Decap Cells: These cells are positioned near logic cells to help manage temporary power supply fluctuations and ensure stability in the power delivery network.
 
-    Decap Cells: These cells are positioned near logic cells to help manage temporary power supply fluctuations and ensure stability in the power delivery network.
-
-    Tap Cells: These cells are used to connect to the power grid and help mitigate substrate noise that could negatively impact the chip's performance.
+Tap Cells: These cells are used to connect to the power grid and help mitigate substrate noise that could negatively impact the chip's performance.
 
 ![image](https://github.com/user-attachments/assets/1cfd7b2e-bea5-4ec2-a9cb-15a7a123c04b)
 
@@ -3453,5 +3452,33 @@ Unplaced standard cells at origin
 
 ![image](https://github.com/user-attachments/assets/b63a416c-9d61-496c-8af9-e9b4aa287851)
 
+Placement
+```
+
+run_placement
+
+```
+
+
+![image](https://github.com/user-attachments/assets/25a074db-a1e3-4463-a164-7ec40724b3c8)
+
+
+![image](https://github.com/user-attachments/assets/4783cf28-34d4-479f-b8a6-902cc644c4d8)
+
+
+![image](https://github.com/user-attachments/assets/ed44e76f-2a4d-4ed2-9d41-64031959b067)
+
+
+Commands
+
+
+![image](https://github.com/user-attachments/assets/fd712ea6-7300-4bcd-88c4-c272b1fc0c07)
+
+
+![image](https://github.com/user-attachments/assets/ec260eab-5faf-4df4-b0f3-600e8fc54bd0)
+
+
+
+![image](https://github.com/user-attachments/assets/22873dde-4e85-4a45-a785-29b772a1d623)
 
 
