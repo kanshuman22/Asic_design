@@ -3792,3 +3792,40 @@ magic -d XR &
 ![image](https://github.com/user-attachments/assets/d96f2d14-1376-469f-ad67-226db0b042d3)
 
 ![image](https://github.com/user-attachments/assets/df4ac61f-616b-4bdd-913a-5118982ef0ea)
+
+
+
+load poly.mag
+
+![image](https://github.com/user-attachments/assets/30a3922d-fa07-4bd4-9565-ca03a25b3a3c)
+
+![image](https://github.com/user-attachments/assets/0c4207a0-0519-42c4-9780-d1b05bb48cbe)
+
+DRC error
+
+![image](https://github.com/user-attachments/assets/1e5bcea8-609f-4eaf-8092-cba9a613226b)
+
+Fixing the error
+
+![image](https://github.com/user-attachments/assets/8ce21fbe-5bd3-4249-aebf-08eaa65aba6c)
+
+We add these commands to the file
+
+
+![image](https://github.com/user-attachments/assets/93392fcd-28c8-4afd-9054-cc294a6f8a55)
+
+
+Commands
+
+```
+tech load sky130A.tech 
+drc check 
+drc why 
+
+```
+
+
+![image](https://github.com/user-attachments/assets/df10e2c9-6373-4656-945a-0daba5d0b5da)
+
+
+
