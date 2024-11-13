@@ -3250,7 +3250,7 @@ gedit picorv32a.synthesis.v
 ![image](https://github.com/user-attachments/assets/39abc441-b432-427a-acf2-0b031bc94f04)
 
 
-```
+
 
 For report
 
