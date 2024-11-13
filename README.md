@@ -3686,6 +3686,7 @@ Output Y
 
 ![image](https://github.com/user-attachments/assets/a50d4906-66c1-4de0-bcde-7efd876cb371)
 
+Extraction of inverter 
 
 
 
