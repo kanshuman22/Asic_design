@@ -3394,3 +3394,64 @@ Pin placement, or I/O planning, is a critical aspect of chip design. Properly as
 
 Floorplanning in OPENLANE:
 
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+docker
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+run_synthesis
+run_floorplan
+
+
+```
+
+![image](https://github.com/user-attachments/assets/03bb5ee5-14ce-4d71-bdf6-523db786567a)
+
+
+![image](https://github.com/user-attachments/assets/d4589a09-2c10-44eb-bdbc-6b13242ac508)
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_16-38/results/floorplan
+gedit picorv32a.floorplan.def
+
+```
+
+![image](https://github.com/user-attachments/assets/b423bab5-b58c-451b-ae00-7b10ed6a361c)
+
+By the floorplan definition
+
+1000 Unit Distance = 1 Micron
+
+Die width in unit distance = 660685−0 = 660685
+
+Die height in unit distance = 671405−0 = 671405
+
+Distance in microns = Value in Unit Distance / 1000
+
+​Die width in microns = 660685 / 1000 = 660.685 Microns
+
+Die height in microns = 671405 / 1000 = 671.405 Microns
+
+Area of die in sq microns = 660.685 × 671.405 = 443587.212425 sq Microns
+
+Floorplan in magic:
+
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+
+![image](https://github.com/user-attachments/assets/d3f72d5b-ccff-4638-9f19-3140beef5223)
+
+
+    Decap Cells: These cells are positioned near logic cells to help manage temporary power supply fluctuations and ensure stability in the power delivery network.
+
+    Tap Cells: These cells are used to connect to the power grid and help mitigate substrate noise that could negatively impact the chip's performance.
+
+![image](https://github.com/user-attachments/assets/1cfd7b2e-bea5-4ec2-a9cb-15a7a123c04b)
+
+Unplaced standard cells at origin 
+
+
+![image](https://github.com/user-attachments/assets/b63a416c-9d61-496c-8af9-e9b4aa287851)
+
+
+
