@@ -3240,7 +3240,8 @@ docker
 package require openlane 0.9
 prep -design picorv32a
 run_synthesis
-
+cd designs/picorv32a/runs/09-11_06-33/results/synthesis/
+gedit picorv32a.synthesis.v
 
 ```
 
@@ -3250,6 +3251,27 @@ run_synthesis
 
 
 ```
+
+For report
+
+```
+cd ../..
+cd reports/synthesis
+gedit 1-yosys_4.stat.rpt
+```
+
+![Screenshot from 2024-11-13 14-44-27](https://github.com/user-attachments/assets/f6f0d685-9d2b-4387-aac6-8bf54c9cef99)
+
+
+![Screenshot from 2024-11-13 14-44-33](https://github.com/user-attachments/assets/55c33f70-16dd-4022-aa79-73af05549ffc)
+
+
+![Screenshot from 2024-11-13 14-52-15](https://github.com/user-attachments/assets/48f58ac1-f4ba-4ed4-b827-508bcb823983)
+
+
+![image](https://github.com/user-attachments/assets/6d13da7e-84e9-4890-9d46-9eb87f22b6ca)
+
+
 
 28. Printing statistics.
 
