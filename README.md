@@ -3743,7 +3743,22 @@ run
 
 ```
 
+Simulating spice netlist
 
+```
+ngspice sky130_inv.spice
+
+```
+
+
+
+![image](https://github.com/user-attachments/assets/2f8d6498-6c3a-446d-bdf5-f71ee4382c9d)
+
+Waveform
+
+![image](https://github.com/user-attachments/assets/3685a4f9-1f9f-495c-a0e0-b1f28ec2a5a0)
+
+Characterization of  Slew Rate and Propagation Delay
 
 
 
