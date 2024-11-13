@@ -3750,16 +3750,45 @@ ngspice sky130_inv.spice
 
 ```
 
+![image](https://github.com/user-attachments/assets/3685a4f9-1f9f-495c-a0e0-b1f28ec2a5a0)
+
+
+
+
+Waveform
 
 
 ![image](https://github.com/user-attachments/assets/2f8d6498-6c3a-446d-bdf5-f71ee4382c9d)
 
-Waveform
-
-![image](https://github.com/user-attachments/assets/3685a4f9-1f9f-495c-a0e0-b1f28ec2a5a0)
 
 Characterization of  Slew Rate and Propagation Delay
 
 
 
+Fall Transition: Time for output to fall from 80% to 20%.
+Rise Transition: Time for output to rise from 20% to 80% of max value.
+Cell Rise/Fall Delay: Difference in time for 50% output change compared to input transition.
 
+
+Rise Transition : 2.24638 - 2.18242 =  0.06396 ns = 63.96 ps
+Fall Transition : 4.0955 - 4.05536 =  0.0419 ns = 41.9 ps
+Cell Rise Delay : 2.21144 - 2.15008 = 0.06136 ns = 61.36 ps
+Cell Fall Delay : 4.07807 - 4.05 =0.02 ns = 20 ps
+
+
+Magic tool and DRC check
+
+```
+
+cd 
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz 
+tar xfz drc_tests.tgz 
+cd drc_tests 
+gvim .magicrc 
+magic -d XR &
+ 
+```
+
+![image](https://github.com/user-attachments/assets/d96f2d14-1376-469f-ad67-226db0b042d3)
+
+![image](https://github.com/user-attachments/assets/df4ac61f-616b-4bdd-913a-5118982ef0ea)
