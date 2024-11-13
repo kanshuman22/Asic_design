@@ -3482,3 +3482,59 @@ Commands
 ![image](https://github.com/user-attachments/assets/22873dde-4e85-4a45-a785-29b772a1d623)
 
 
+
+Cell Design and Characterization Flow
+
+A library is a collection of information about different cells, each with its own size, functionality, and threshold voltages. The cell design flow typically follows a series of steps, from initial input to final output.
+Inputs:
+
+PDKs (Process Design Kits): Includes design rules (DRC & LVS), SPICE models, libraries, and user-defined specifications.
+
+Design Steps:
+
+Circuit Design: Create the functional design of the cell.
+Layout Design: Draw the layout using techniques like Euler’s path and stick diagrams.
+Parasitic Extraction: Extract the parasitic elements (like capacitance and resistance) from the layout.
+Characterization: Analyze the cell for timing, noise, and power consumption.
+
+Outputs:
+
+CDL (Circuit Description Language): A file that describes the circuit.
+LEF: Layout exchange format, describing the layout of the cell.
+GDSII: The file format used for chip manufacturing layouts.
+Extracted SPICE Netlist (.cir): A file containing the electrical characteristics of the circuit.
+Timing, Noise, and Power .lib files: Library files with the characterization results.
+
+
+Standard Cell Characterization Flow
+
+The process for characterizing standard cells in the industry usually follows these steps:
+
+Load Models and Technology Files: Start by reading in the models and technology files (like those from the PDK).
+Load the Extracted SPICE Netlist: Read the SPICE netlist, which contains the electrical properties of the circuit.
+Identify Cell Behavior: Understand how the cell behaves electrically.
+Read Subcircuits: Load any subcircuits that are part of the cell.
+Attach Power Sources: Add the necessary power sources for the cell.
+Apply Stimuli: Set up the test conditions and inputs (stimulus) for the characterization.
+Add Output Capacitance Loads: Specify the output loads for the cell during testing.
+Set Simulation Commands: Provide the commands needed to run the simulations.
+
+Once these eight steps are prepared, they are bundled together into a configuration file and passed to characterization software called GUNA. This software then generates models for timing, noise, and power. The resulting .lib files are divided into three categories:
+
+Timing Characterization
+Power Characterization
+Noise Characterization
+
+### Timing Parameters ( Aligned Table )
+
+| Timing Definition     | Value       |
+|-----------------------|-------------|
+| slew_low_rise_thr     | 20%         |
+| slew_high_rise_thr    | 80%         |
+| slew_low_fall_thr     | 20%         |
+| slew_high_fall_thr    | 80%         |
+| in_rise_thr           | 50%         |
+| in_fall_thr           | 50%         |
+| out_rise_thr          | 50%         |
+| out_fall_thr          | 50%         |
+
