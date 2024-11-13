@@ -3553,3 +3553,28 @@ Transition time is the duration it takes for a signal to change between differen
 
 Fall Transition Time = time(slew-high-fall-thr) − time(slew-low-fall-thr)
 Rise Transition Time = time(slew-high-rise-thr) − time(slew-low-rise-thr) 
+
+
+### Day 3
+
+Design library cell using Magic Layout and ngspice characterization
+
+CMOS Inverter ngspice Simulations
+
+Creating a SPICE Deck for CMOS Inverter Simulation
+
+    Netlist Creation: Create a netlist that defines how the components in the CMOS inverter are connected. Each node should be clearly labeled for easy identification during the SPICE simulation. Common node labels include input, output, ground, and supply.
+
+    Device Sizing: Set the Width-to-Length (W/L) ratios for the PMOS and NMOS transistors. To ensure balanced drive strength, the PMOS width should generally be 2x to 3x larger than the NMOS width.
+
+    Voltage Levels: Define the gate and supply voltages, which are typically set as multiples of the transistor's length for proper operation.
+
+    Node Naming: Assign specific names to the nodes around the components (such as VDD, GND, IN, OUT) to help identify and distinguish each element in the SPICE netlist. This ensures that SPICE can accurately simulate the circuit's behavior.
+
+
+Transistor description syntax
+
+[component name] [drain] [gate] [source] [substrate] [transistor type] W=[width] L=[length]
+
+
+
