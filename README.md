@@ -3598,6 +3598,96 @@ plot out vs in
 
 
 
+Switching Threshold (Vm): Vm is the input voltage at which the output of the inverter transitions between logic levels. When the PMOS and NMOS sizes are equal, Vm is typically around VDD/2. Changing the sizes of the PMOS or NMOS transistors will shift Vm higher or lower.
+
+Threshold Calculation spice command
+
+```
+
+Vin in 0 2.5 
+.op 
+.dc Vin 0 2.5 0.05 
+
+```
+
+![image](https://github.com/user-attachments/assets/0288886d-68d4-4421-a748-72c35b0e7525)
+
+
+Transient analysis to get propagation delay 
+
+We apply a pulse input signal 
+
+```
+
+Vin in 0 0 pulse 0 2.5 0 10p 10p 1n 2n 
+*** Simulation Command ***
+.op
+.tran 10p 4n
+
+```
+
+![image](https://github.com/user-attachments/assets/2cb9a655-596d-4162-bee0-e25f1cbc5e93)
+
+Cloning a custom inverter layout
+
+```
+
+
+git clone https://github.com/nickson-jose/vsdstdcelldesign
+cd Desktop/work/tools/openlane_working_dir/openlane
+cd vsdstdcelldesign/
+cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .
+ls
+magic -T sky130A.tech sky130_inv.mag &
+
+```
+![image](https://github.com/user-attachments/assets/28417f72-2f92-4c8c-97d8-419065f2b5e6)
+
+![image](https://github.com/user-attachments/assets/fd69c32e-7198-492b-a57e-1b5f92f2b706)
+
+
+Fabrication Process  for CMOS  
+
+16 Mask Method
+
+The CMOS fabrication process involves a series of precise steps using photolithography and chemicals to create integrated circuits on a silicon wafer. It consists of several layers, and 16 photomasks are used to define and protect specific areas at each stage. Every step is carefully controlled to ensure the chips are reliable and work correctly.
+
+1. Substrate Preparation: Begin with a clean, polished silicon wafer as the base.
+2. N-Well Formation: Create N-well regions in the p-type substrate by implanting phosphorus.
+3. P-Well Formation: Create P-well regions in n-type areas by implanting boron.
+4. Gate Oxide Deposition: Apply a thin silicon dioxide layer to insulate the gate from the channel.
+5. Polysilicon Deposition: Add a polysilicon layer that will form the gate electrode.
+6. Polysilicon Masking and Etching: Use masks and etching to shape the polysilicon into gate structures.
+7. N-Well Masking and Implantation: Mask and implant phosphorus to define the N-well areas.
+8. P-Well Masking and Implantation: Mask and implant boron to define the P-well areas.
+9. Source/Drain Implantation: Create source and drain regions by implanting dopants (e.g., arsenic for NMOS and boron for PMOS).
+10. Gate Formation: Use a mask to define and etch the gate structure.
+11. Source/Drain Masking and Etching: Etch to expose the source and drain regions for further processing.
+12. Contact/Via Formation: Etch holes to access the source, drain, and gate regions for connections.
+13. Metal Deposition: Deposit metal (like aluminum or copper) to create the interconnections.
+14. Metal Masking and Etching: Mask and etch the metal to form the interconnection patterns.
+15. Passivation Layer Deposition: Apply a protective layer of silicon dioxide or nitride over the wafer.
+16. Final Testing and Packaging: Test the wafer, separate the working chips, and package them for use.
+
+
+![image](https://github.com/user-attachments/assets/062a9741-f975-4277-9e04-7d2c6eb7d9c0)
+
+Identifying components
+
+PMOS transistor
+
+![image](https://github.com/user-attachments/assets/74da71fa-ad62-45b0-92ff-6c92a74e650e)
+
+NMOS transistor
+
+![image](https://github.com/user-attachments/assets/0112f736-f6ef-4bd9-9bb8-05eb933df4b5)
+
+Output Y
+
+![image](https://github.com/user-attachments/assets/a50d4906-66c1-4de0-bcde-7efd876cb371)
+
+
+
 
 
 
