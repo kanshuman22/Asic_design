@@ -3271,7 +3271,7 @@ gedit 1-yosys_4.stat.rpt
 
 ![image](https://github.com/user-attachments/assets/6d13da7e-84e9-4890-9d46-9eb87f22b6ca)
 
-
+```
 
 28. Printing statistics.
 
