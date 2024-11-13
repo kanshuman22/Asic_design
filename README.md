@@ -3357,3 +3357,40 @@ Flop ratio = Number of D Flip flops = 1613  = 0.1084
              Total Number of cells    14876
 
 ```
+
+### Day 2
+
+Introduction to library cells , Good floorplan vs Bad floorplan
+
+Utilization Factor and Aspect Ratio
+
+In integrated circuit (IC) floor planning, two important parameters are the utilization factor and aspect ratio. The utilization factor is the ratio of the area occupied by the netlist to the total core area. While a utilization factor of 1 (100%) is considered ideal, most practical designs target a factor between 0.5 and 0.6 to allow for buffer zones, routing space, and room for future adjustments. The aspect ratio, calculated by dividing the height by the width, defines the chip's overall shape. A ratio of 1 results in a square shape, while other values lead to a rectangular layout. The aspect ratio is chosen based on functional, packaging, and manufacturing requirements.
+
+
+Utilization Factor =  Area occupied by netlist
+                     __________________________
+                         Total area of core
+                         
+
+Aspect Ratio =  Height
+               ________
+                Width
+
+Pre-placed Cells
+
+Pre-placed cells are essential functional blocks—such as memory units, custom processors, and analog circuits—that are manually positioned at specific locations. These cells are crucial for maintaining the chip's performance and remain fixed during the placement and routing process to ensure their functionality and preserve layout integrity.
+
+Decoupling Capacitors
+
+Decoupling capacitors are placed near logic circuits to stabilize power supply voltages during transient events. Acting as local energy buffers, they help mitigate voltage fluctuations, crosstalk, and electromagnetic interference (EMI), ensuring consistent power delivery to sensitive circuits.
+
+Power Planning
+
+A robust power planning strategy involves creating a power and ground mesh that evenly distributes the VDD (power) and VSS (ground) across the chip. This design improves power delivery stability, minimizes voltage drops, and enhances the overall efficiency of the chip. Multiple power and ground connections further reduce the risk of instability and support the design’s power requirements.
+
+Pin Placement
+
+Pin placement, or I/O planning, is a critical aspect of chip design. Properly assigned pins minimize signal degradation, enhance heat dissipation, and contribute to thermal stability. Strategically positioning power and ground pins further supports signal strength and contributes to the overall manufacturability and reliability of the chip.
+
+Floorplanning in OPENLANE:
+
