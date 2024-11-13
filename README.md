@@ -3132,7 +3132,7 @@ Graphs:
 
 Day 1
 
-### The QFN-48 Package is a small, leadless package featuring 48 connection pads along its edges. It offers superior thermal and electrical performance, making it well-suited for high-density applications.
+The QFN-48 Package is a small, leadless package featuring 48 connection pads along its edges. It offers superior thermal and electrical performance, making it well-suited for high-density applications.
 
 ### Chip
 
@@ -3220,7 +3220,7 @@ Here is a high-level overview of the steps involved in turning RTL design into a
 
 ### OpenLane Directory Structure
 
-
+```
 ├── OpenLane            # Main tool directory
 │   ├── designs         # Contains all design projects
 │   │   └── picorv32a   # Example project/design
@@ -3230,6 +3230,8 @@ Here is a high-level overview of the steps involved in turning RTL design into a
 │   ├── sky130A         # Open-source compatible version of the Skywater PDK
 │   │   ├── libs.ref    # Node-specific files 
 │   │   ├── libs.tech   # Tool-specific files 
+
+```
 
 ### Openlane synthesis
 
@@ -3366,7 +3368,7 @@ Utilization Factor and Aspect Ratio
 
 In integrated circuit (IC) floor planning, two important parameters are the utilization factor and aspect ratio. The utilization factor is the ratio of the area occupied by the netlist to the total core area. While a utilization factor of 1 (100%) is considered ideal, most practical designs target a factor between 0.5 and 0.6 to allow for buffer zones, routing space, and room for future adjustments. The aspect ratio, calculated by dividing the height by the width, defines the chip's overall shape. A ratio of 1 results in a square shape, while other values lead to a rectangular layout. The aspect ratio is chosen based on functional, packaging, and manufacturing requirements.
 
-
+```
 Utilization Factor =  Area occupied by netlist
                      __________________________
                          Total area of core
@@ -3375,6 +3377,7 @@ Utilization Factor =  Area occupied by netlist
 Aspect Ratio =  Height
                ________
                 Width
+```
 
 Pre-placed Cells
 
