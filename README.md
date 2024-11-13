@@ -3563,18 +3563,42 @@ CMOS Inverter ngspice Simulations
 
 Creating a SPICE Deck for CMOS Inverter Simulation
 
-    Netlist Creation: Create a netlist that defines how the components in the CMOS inverter are connected. Each node should be clearly labeled for easy identification during the SPICE simulation. Common node labels include input, output, ground, and supply.
+Netlist Creation: Create a netlist that defines how the components in the CMOS inverter are connected. Each node should be clearly labeled for easy identification during the SPICE simulation. Common node labels include input, output, ground, and supply.
 
-    Device Sizing: Set the Width-to-Length (W/L) ratios for the PMOS and NMOS transistors. To ensure balanced drive strength, the PMOS width should generally be 2x to 3x larger than the NMOS width.
+Device Sizing: Set the Width-to-Length (W/L) ratios for the PMOS and NMOS transistors. To ensure balanced drive strength, the PMOS width should generally be 2x to 3x larger than the NMOS width.
 
-    Voltage Levels: Define the gate and supply voltages, which are typically set as multiples of the transistor's length for proper operation.
+Voltage Levels: Define the gate and supply voltages, which are typically set as multiples of the transistor's length for proper operation.
 
-    Node Naming: Assign specific names to the nodes around the components (such as VDD, GND, IN, OUT) to help identify and distinguish each element in the SPICE netlist. This ensures that SPICE can accurately simulate the circuit's behavior.
+Node Naming: Assign specific names to the nodes around the components (such as VDD, GND, IN, OUT) to help identify and distinguish each element in the SPICE netlist. This ensures that SPICE can accurately simulate the circuit's behavior.
 
 
 Transistor description syntax
 
 [component name] [drain] [gate] [source] [substrate] [transistor type] W=[width] L=[length]
+
+![image](https://github.com/user-attachments/assets/15237f9f-57c6-4dbc-a50c-d37e2aef1692)
+
+
+Simulation Commands
+
+For transient analysis
+
+```
+
+source [filename].cir 
+run 
+setplot 
+dc1 
+plot out vs in
+
+
+``` 
+
+![image](https://github.com/user-attachments/assets/e749892f-5b96-4755-a215-744d6eab10aa)
+
+
+
+
 
 
 
