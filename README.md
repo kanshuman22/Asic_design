@@ -13,7 +13,7 @@
 - [Task 10](#task-10)
 
 - [Task 11](#task-11)
-
+- [Task 12](#task-12)
 
   
 
@@ -3126,3 +3126,106 @@ Graphs:
 ![image](https://github.com/user-attachments/assets/58764ded-8d4b-4404-aa5b-b690eae4103a)
 
 
+
+## Task 12 
+
+Day 1
+
+### The QFN-48 Package is a small, leadless package featuring 48 connection pads along its edges. It offers superior thermal and electrical performance, making it well-suited for high-density applications.
+
+### Chip
+
+An integrated circuit (IC) built on a silicon base, incorporating various functional components such as memory, processors, and I/O interfaces, tailored for specific electronic applications.
+
+### Pads
+
+Small metallic contact areas on a chip or package that facilitate the connection between the internal circuitry and external components, allowing for the transmission of signals.
+
+
+### Core
+
+The primary processing unit of a chip, housing the essential logic elements designed for optimal performance and power efficiency.
+
+### Die
+
+The portion of a silicon wafer that contains a single integrated circuit (IC) before it undergoes packaging, containing all the active circuitry of the chip.
+
+### IPs (Intellectual Properties)
+
+Pre-engineered functional components, like USB controllers or memory interfaces, that are licensed for reuse in various designs to reduce development time and costs.
+
+### Software to Hardware Execution Flow & ASIC Design Process
+
+This repository explains the process of running an application on hardware, focusing on the flow from high-level software to hardware execution. Additionally, it provides an overview of ASIC design, including key concepts and tools involved in the design and fabrication of custom integrated circuits (ICs).
+
+###  Software to Hardware Execution Flow
+
+When running an application on hardware, it first passes through the system software layer, which converts it into binary form. The primary components involved are:
+
+### Key Components:
+
+- **OS**: The Operating System breaks down the application functions written in high-level languages (like C or Java) and passes them to the compiler.
+- **Compiler**: The compiler converts high-level functions into low-level, hardware-specific instructions.
+- **Assembler**: The assembler further converts these instructions into machine-readable binary code for hardware execution.
+
+### Example Flow (Stopwatch App on RISC-V):
+- **OS** generates a function in C.
+- **Compiler** generates RISC-V-specific instructions.
+- **Assembler** converts instructions into binary code, which is then executed by the hardware.
+
+### Process Overview:
+1. The compiler and assembler produce architecture-specific instructions and binary code.
+2. The binary code is interpreted by the **Register Transfer Level (RTL)** design, written in a Hardware Description Language (HDL).
+3. The RTL design is synthesized into a **netlist** of interconnected logic gates.
+4. The design undergoes **physical implementation**, preparing it for chip fabrication.
+
+###  Components of ASIC Design
+
+Key components and tools used in designing custom Application-Specific Integrated Circuits (ASICs):
+
+- **RTL IPs**: Verified circuit blocks (like adders, flip-flops) written in HDL, used for accelerating complex designs.
+- **EDA Tools**: Software tools for automating tasks like synthesis, optimization, and timing analysis to meet design specifications.
+- **PDK Data**: Foundry data files that define the manufacturing process, ensuring the design is ready for fabrication.
+
+###  Simplified RTL to GDSII Flow
+
+Here is a high-level overview of the steps involved in turning RTL design into a finished GDSII file, which is used in chip fabrication:
+
+1. **RTL Design**: Describes the circuit function using HDLs such as Verilog or VHDL.
+2. **RTL Synthesis**: Converts RTL code into a gate-level netlist, optimizing cells for the target technology.
+3. **Floor and Power Planning**: Layout of the major components, power grid, and input/output systems.
+4. **Placement**: Allocates cells in the layout to minimize wire length and reduce signal delays.
+5. **Clock Tree Synthesis (CTS)**: Ensures uniform distribution of clock signals across the design.
+6. **Routing**: Connects the components while meeting design rules.
+7. **Sign-off**: Final verification of the design before sending it for fabrication.
+8. **GDSII Generation**: Converts the physical layout into the GDSII file format for chip manufacturing.
+
+###  OpenLane ASIC Flow Overview
+
+ Below is an overview of the key steps:
+
+1. **RTL Synthesis and Technology Mapping**: Uses tools like Yosys and ABC to convert RTL to a gate-level netlist and map it to target technology libraries.
+2. **Static Timing Analysis**: OpenSTA performs timing analysis to ensure the design meets speed and timing requirements.
+3. **Floor Planning**: Tools like init_fp, ioPlacer, pdn, and tapcell are used for floor planning and power grid design.
+4. **Placement**: Managed by tools such as RePLace, Resizer, OpenPhySyn, and OpenDP.
+5. **Clock Tree Synthesis**: TritonCTS optimizes the distribution of clock signals.
+6. **Fill Insertion**: OpenDP adds filler cells to ensure correct layout density.
+7. **Routing**: FastRoute and TritonRoute are used for global and detailed routing, respectively.
+8. **SPEF Extraction**: Parasitic data is extracted using OpenRCX for better timing and power analysis.
+9. **GDSII Output**: Magic and KLayout generate the final GDSII file, ready for chip fabrication.
+10. **Design Rule Checks**: Magic and KLayout also perform checks to ensure the design adheres to manufacturing rules.
+11. **Layout vs. Schematic Check**: Netgen is used to verify that the layout matches the schematic.
+12. **Antenna Effect Checks**: Magic ensures the design avoids issues related to parasitic capacitance.
+
+### OpenLane Directory Structure
+
+
+├── OpenLane            # Main tool directory
+│   ├── designs         # Contains all design projects
+│   │   └── picorv32a   # Example project/design
+├── pdks                # Files related to Process Design Kits (PDKs)
+│   ├── skywater-pdk    # PDKs for the Skywater 130nm process
+│   ├── open-pdks       # Scripts for compatibility with open-source tools
+│   ├── sky130A         # Open-source compatible version of the Skywater PDK
+│   │   ├── libs.ref    # Node-specific files 
+│   │   ├── libs.tech   # Tool-specific files 
