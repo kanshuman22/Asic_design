@@ -4245,3 +4245,90 @@ run_cts
 
 ```
 
+
+![image](https://github.com/user-attachments/assets/782c6ab9-dfcd-4d49-9ae4-ce8ba8f246bb)
+
+![image](https://github.com/user-attachments/assets/8a34cdee-f8a3-49d7-8800-fd5453afba40)
+
+![image](https://github.com/user-attachments/assets/b6c23518-7307-4db4-84e8-98a0177be331)
+
+
+![image](https://github.com/user-attachments/assets/c60f3c1b-9e2d-4061-8a01-1635f6d0a895)
+
+
+![image](https://github.com/user-attachments/assets/64b559cd-879a-43f7-9a8f-aa2cd5b2e7f2)
+
+
+![image](https://github.com/user-attachments/assets/d5edcb15-bd73-4dab-9af8-e85989faa7a7)
+
+cts run 
+
+![image](https://github.com/user-attachments/assets/bd07b86b-d073-4edb-8f4b-a81035c36c66)
+
+![image](https://github.com/user-attachments/assets/af34aadb-6a99-4956-b446-ffc10e28a9dd)
+
+
+
+Setup timing analysis using real clocks
+
+
+Setup Timing Analysis with Real Clocks takes into account practical factors such as clock skew and clock jitter. Clock skew refers to the variation in arrival times of the clock signal at different parts of the circuit, caused by physical delays, which impacts the setup and hold timing margins. Clock jitter is the fluctuation in the clock period due to power, temperature, and noise variations, introducing uncertainty in the timing of clock edges. Both of these factors are essential for precise timing analysis, ensuring the design performs reliably under real-world conditions.
+
+
+Commands for Post-CTS OpenROAD timing analysis:
+
+
+```
+openroad
+read_lef /openLANE_flow/designs/picorv32a/runs/14-11_20-06/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/14-11_20-06/results/cts/picorv32a.cts.def
+write_db pico_cts.db
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/14-11_20-06/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+exit
+
+```
+
+![image](https://github.com/user-attachments/assets/a844be17-9126-4246-a162-ae170a7ac0fa)
+
+![image](https://github.com/user-attachments/assets/22992dee-ed50-40a1-baa7-d7b7c279c27e)
+
+
+![image](https://github.com/user-attachments/assets/c0050599-fcd6-4bb5-98db-636d9e9f7e9e)
+
+
+
+Commands for exploring post-CTS OpenROAD timing analysis by removing 'sky130_fd_sc_hd__clkbuf_1' cell from clock buffer list variable 'CTS_CLK_BUFFER_LIST'
+
+```
+echo $::env(CTS_CLK_BUFFER_LIST)
+set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
+echo $::env(CTS_CLK_BUFFER_LIST)
+echo $::env(CURRENT_DEF)
+set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/14-11_20-06/results/placement/picorv32a.placement.def
+run_cts
+echo $::env(CTS_CLK_BUFFER_LIST)
+openroad
+read_lef /openLANE_flow/designs/picorv32a/runs/14-11_20-06/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/14-11_20-06/results/cts/picorv32a.cts.def
+write_db pico_cts1.db
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/14-11_20-06/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew transd net cap input_pins} -format full_clock_expanded -digits 4
+report_clock_skew -hold
+report_clock_skew -setup
+exit
+echo $::env(CTS_CLK_BUFFER_LIST)
+set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]
+echo $::env(CTS_CLK_BUFFER_LIST)
+
+```
