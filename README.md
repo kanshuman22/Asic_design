@@ -4163,3 +4163,85 @@ replace_cell _16171_ sky130_fd_sc_hd__nor3_2
 report_checks -fields {net cap slew input_pins} -digits 4
 
 ```
+
+
+Clock Tree Synthesis (CTS) methods differ depending on design requirements:
+
+Balanced Tree CTS: Utilizes a balanced binary tree to ensure equal path lengths, reducing clock skew but offering moderate power efficiency.
+
+H-tree CTS: Adopts an "H"-shaped configuration, ideal for large designs and optimized for power efficiency.
+
+
+![image](https://github.com/user-attachments/assets/96f7858b-efc9-4c5b-a3e7-4ffe5a0c24a9)
+
+
+Star CTS: Distributes the clock from a central point, reducing skew, but demands additional buffers near the source.
+
+Global-Local CTS: Merges star and tree structures, with a global tree for clock distribution across domains and local trees within those domains, providing a balance between global and local timing.
+
+Mesh CTS: Implements a grid pattern, well-suited for structured designs, balancing ease of implementation with clock skew reduction.
+
+Adaptive CTS: Adjusts dynamically based on timing and congestion conditions, offering greater flexibility, though at the cost of increased complexity.
+
+
+Crosstalk
+
+
+Crosstalk refers to interference caused by overlapping electromagnetic fields between neighboring circuits, leading to unwanted signal interactions. In VLSI, it can result in data corruption, timing problems, and increased power consumption. Strategies to mitigate crosstalk include optimized layout and routing, shielding techniques, and clock gating to reduce dynamic power and minimize interference.
+
+
+![image](https://github.com/user-attachments/assets/be234746-9a94-4c38-9746-a79e4967c6b5)
+
+
+Clock net shielding 
+
+Clock Net Shielding involves protecting the clock network from glitches by isolating it with shields connected to VDD or GND, which remain static. This technique minimizes interference by separating the clock signals from other routing signals, often using dedicated layers and clock buffers. Furthermore, isolating clock domains helps prevent interference between domains, avoiding metastability and ensuring proper synchronization.
+
+
+![image](https://github.com/user-attachments/assets/fb00ce48-a27f-4be6-928a-be009dd5131f)
+
+
+Now to insert this updated netlist to PnR flow and we can use write_verilog and overwrite the synthesis netlist but before that we are going to make a copy of the old old netlist:
+
+Commands:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_18-01/results/synthesis/
+ls
+cp picorv32a.synthesis.v picorv32a.synthesis_old.v
+ls
+
+```
+Commands for verilog 
+
+```
+write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/13-11_18-01/results/synthesis/picorv32a.synthesis.v
+exit
+
+```
+Overwritten netlist
+
+
+![image](https://github.com/user-attachments/assets/19df7613-099f-4258-87de-67431e9e6cb3)
+
+
+CTS and Post CTS timing analysis
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+docker
+./flow.tcl -interactive
+prep -design picorv32a -tag 14-11_20-06 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+set ::env(SYNTH_SIZING) 1
+run_synthesis
+init_floorplan
+place_io
+tap_decap_or
+run_placement
+run_cts
+
+```
+
