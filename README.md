@@ -3132,7 +3132,14 @@ Graphs:
 
 </details>
 
-## Task 13 
+
+<details>
+
+
+<summary>
+## Task 13
+
+ </summary>
 
 Day 1
 
@@ -4017,6 +4024,9 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 
 Custom inverter
 
+![image](https://github.com/user-attachments/assets/5b66ce8f-ccaf-484c-a21c-49dbc97260bc)
+
+
 ![image](https://github.com/user-attachments/assets/b03c5095-4495-4f00-8da7-55a5c0ad85a0)
 
 
@@ -4507,3 +4517,5 @@ exit
 
 ![image](https://github.com/user-attachments/assets/a9c25938-be47-43c2-9234-f5215a7070b4)
 
+
+</details>
