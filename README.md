@@ -3811,8 +3811,11 @@ Fixing the error
 
 We add these commands to the file
 
+![image](https://github.com/user-attachments/assets/0911b9a7-5d25-4bb8-9e90-f06d293c7ce2)
 
-![image](https://github.com/user-attachments/assets/93392fcd-28c8-4afd-9054-cc294a6f8a55)
+
+![image](https://github.com/user-attachments/assets/1f9bbe1c-a772-4037-87c9-eed884875b06)
+
 
 
 Commands
