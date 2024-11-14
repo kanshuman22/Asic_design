@@ -3997,9 +3997,55 @@ run _placement
 
 Run the below commands in a new terminal  to load placement def in magic
 
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/24-03_10-03/results/placement/
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+
+
+```
+
 ![Screenshot from 2024-11-14 19-05-34](https://github.com/user-attachments/assets/6fac4084-57e6-45a7-8998-97435aa53e9c)
 
 ![image](https://github.com/user-attachments/assets/43926e77-b75b-4913-9d2c-78d744f5ba0c)
 
 ![image](https://github.com/user-attachments/assets/7a6835ab-184f-4532-be98-76cffe2f7f20)
+
+
+Custom inverter
+
+![image](https://github.com/user-attachments/assets/b03c5095-4495-4f00-8da7-55a5c0ad85a0)
+
+
+![image](https://github.com/user-attachments/assets/4230163f-daab-4160-b1d6-a1db9f68b314)
+
+
+Timing analysis with ideal clocks using openSTA
+
+
+Pre-layout Static Timing Analysis (STA) will account for the impact of clock buffers and net delays caused by RC parasitics. The wire delay will be calculated based on the wire model provided in the Process Design Kit (PDK) library.
+
+![image](https://github.com/user-attachments/assets/f56f9393-884c-4cff-8ec2-291ab76eb8da)
+
+
+Since the improved timing run resulted in 0 WNS, we will perform the timing analysis on the initial synthesis run, which has numerous violations and lacks any parameters for timing improvement.
+
+Invoking openlane flow
+
+Commands
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+docker
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+set ::env(SYNTH_SIZING) 1
+run_synthesis
+
+```
+
+![image](https://github.com/user-attachments/assets/7b241043-1f64-41fe-b6be-07468727fd41)
+
 
