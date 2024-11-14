@@ -3908,4 +3908,69 @@ if { [file exists $filename] == 1 } {
 
 Openlane flow synthesis:
 
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+docker
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+run_synthesis
+
+```
+
+
+![Screenshot from 2024-11-14 11-51-25](https://github.com/user-attachments/assets/a812ecee-945e-40ad-a606-089a58b594cf)
+
+
+![image](https://github.com/user-attachments/assets/62272f4e-e8d3-435b-972c-f9f3e51c39a0)
+
+![image](https://github.com/user-attachments/assets/3046964e-798d-46f4-a23b-efbc149a9c87)
+
+![image](https://github.com/user-attachments/assets/f8268942-4991-4139-966c-6a9cb3303b52)
+
+![image](https://github.com/user-attachments/assets/fbbf42db-1804-4ff7-b02b-d818038e6af7)
+
+
+![image](https://github.com/user-attachments/assets/0ac700f4-8ecd-4e10-bce0-8ffb33df41f1)
+
+![image](https://github.com/user-attachments/assets/eb1169b3-e683-4ff7-adfe-5b73fff72fdc)
+
+![image](https://github.com/user-attachments/assets/0024064c-5671-40b8-9d3d-3fdc1bf13388)
+
+Delay tables
+
+Delay is an important factor in cell timing, influenced by input transition and output load. Even cells of the same type can experience different delays due to variations in wire length, resistance, and capacitance. To account for this, "delay tables" are used—2D arrays that map input slew and load capacitance for each buffer size, providing timing models. Algorithms use these tables to compute the delays of buffers, interpolating between data points when exact values are not available, ensuring accurate delay estimation and maintaining signal integrity across different load conditions.
+
+
+![image](https://github.com/user-attachments/assets/80e184c5-bbde-4dae-9356-8cf71f1e9cdc)
+
+
+
+Fixing Slack
+
+```
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a -tag 24-03_10-03 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+echo $::env(SYNTH_STRATEGY)
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+echo $::env(SYNTH_BUFFERING
+echo $::env(SYNTH_SIZING)
+set ::env(SYNTH_SIZING) 1
+echo $::env(SYNTH_DRIVING_CELL)
+run_synthesis
+
+```
+
+![image](https://github.com/user-attachments/assets/733ed2ac-9f1d-4a43-8195-ea2379df34b3)
+
+
+
+
+
+
 
