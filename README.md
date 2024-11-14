@@ -4406,3 +4406,32 @@ run_routing
 ```
 
 
+![image](https://github.com/user-attachments/assets/7e7e50b9-6ed5-4abc-9890-a0a14c5f163a)
+
+
+
+
+
+
+
+TritonRoute
+
+Intra-layer Routing: Routing within a single metal layer is performed in parallel.
+Inter-layer Routing: This routing occurs sequentially across multiple layers, ensuring alignment with the directions specified in the LEF (e.g., MET1 is horizontal, MET2 is vertical).
+Route Guides: Global route guides provide an initial framework for routing, helping TritonRoute with detailed routing by minimizing conflicts and improving connectivity.
+Inter-guide Connectivity: TritonRoute ensures continuous signal flow across adjacent route guides, minimizing gaps to improve overall design continuity.
+
+![image](https://github.com/user-attachments/assets/9a1a1660-a6c0-4f8b-ac13-d59739346fba)
+
+![image](https://github.com/user-attachments/assets/156b56f3-6d9a-4476-8172-483b5e821fe9)
+
+![image](https://github.com/user-attachments/assets/7bb680fd-afc6-45a6-ae53-bf61deaa4161)
+
+![image](https://github.com/user-attachments/assets/a91606b6-6cf6-4f70-9753-ae78b1746a74)
+
+
+A routing topology algorithm determines how the connections between pins in an integrated circuit are structured and arranged. 
+Its goal is to create an efficient layout that minimizes cost by finding the best paths and shapes for the connections.
+
+![image](https://github.com/user-attachments/assets/7a56acac-71a8-4721-9eb7-b54a6d33a21e)
+
