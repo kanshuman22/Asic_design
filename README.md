@@ -3994,3 +3994,12 @@ run _placement
 
 
 ![image](https://github.com/user-attachments/assets/f20c7634-be41-4d27-bf1e-679908c10d4b)
+
+Run the below commands in a new terminal  to load placement def in magic
+
+![Screenshot from 2024-11-14 19-05-34](https://github.com/user-attachments/assets/6fac4084-57e6-45a7-8998-97435aa53e9c)
+
+![image](https://github.com/user-attachments/assets/43926e77-b75b-4913-9d2c-78d744f5ba0c)
+
+![image](https://github.com/user-attachments/assets/7a6835ab-184f-4532-be98-76cffe2f7f20)
+
