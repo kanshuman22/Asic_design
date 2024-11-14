@@ -3974,4 +3974,23 @@ run_synthesis
 
 
 
+run_floorplan
 
+![image](https://github.com/user-attachments/assets/2b53776f-5595-4e9c-a4f1-e4950f11a90e)
+
+To avoid the unexplainable error ,we can instead use the another set of commands which are available based on information from Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands/floorplan.tcl and also based on Floorplan Commands section in Desktop/work/tools/openlane_working_dir/openlane/docs/source/OpenLANE_commands.md
+
+```
+init_floorplan
+place_io
+tap_decap_or
+
+```
+
+
+run _placement
+
+![image](https://github.com/user-attachments/assets/af25a05f-8b17-4717-bd54-a186bbe9e16b)
+
+
+![image](https://github.com/user-attachments/assets/f20c7634-be41-4d27-bf1e-679908c10d4b)
