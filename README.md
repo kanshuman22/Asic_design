@@ -4332,3 +4332,21 @@ set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_
 echo $::env(CTS_CLK_BUFFER_LIST)
 
 ```
+
+
+![image](https://github.com/user-attachments/assets/3a41b26e-036c-4e34-ba73-d21dfe8b5416)
+
+![image](https://github.com/user-attachments/assets/8c1c0d08-9c2f-42e3-a48d-08c4690b5d5b)
+
+![image](https://github.com/user-attachments/assets/65922f1c-f82e-4699-bdc6-75d6b41c9003)
+
+
+![image](https://github.com/user-attachments/assets/627d93e4-9c55-45b7-ad0a-272f5f89b6b6)
+
+
+![image](https://github.com/user-attachments/assets/3ffc11a4-42a4-4691-a93f-9765b6e31ce4)
+
+
+
+
+
