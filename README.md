@@ -4049,3 +4049,104 @@ run_synthesis
 ![image](https://github.com/user-attachments/assets/7b241043-1f64-41fe-b6be-07468727fd41)
 
 
+Create a file pre_sta.conf
+
+Contents
+
+```
+set_cmd_units -time ns -capacitance pF -current mA -voltage V -resistance kOhm -distance um
+read_liberty -max /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib
+read_liberty -min /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib
+read_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/24-03_10-03/results/synthesis/picorv32a.synthesis.v
+link_design picorv32a
+read_sdc /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/my_base.sdc
+report_checks -path_delay min_max -fields {slew trans net cap input_pin}
+report_tns
+report_wns
+
+```
+
+my_base.sdc:
+
+```
+set ::env(CLOCK_PORT) clk
+set ::env(CLOCK_PERIOD) 12.000
+set ::env(SYNTH_DRIVING_CELL) sky130_fd_sc_hd__inv_8
+set ::env(SYNTH_DRIVING_CELL_PIN) Y
+set ::env(SYNTH_CAP_LOAD) 17.65
+create_clock [get_ports $::env(CLOCK_PORT)]  -name $::env(CLOCK_PORT)  -period $::env(CLOCK_PERIOD)
+set IO_PCT  0.2
+set input_delay_value [expr $::env(CLOCK_PERIOD) * $IO_PCT]
+set output_delay_value [expr $::env(CLOCK_PERIOD) * $IO_PCT]
+puts "\[INFO\]: Setting output delay to: $output_delay_value"
+puts "\[INFO\]: Setting input delay to: $input_delay_value"
+
+
+set clk_indx [lsearch [all_inputs] [get_port $::env(CLOCK_PORT)]]
+#set rst_indx [lsearch [all_inputs] [get_port resetn]]
+set all_inputs_wo_clk [lreplace [all_inputs] $clk_indx $clk_indx]
+#set all_inputs_wo_clk_rst [lreplace $all_inputs_wo_clk $rst_indx $rst_indx]
+set all_inputs_wo_clk_rst $all_inputs_wo_clk
+
+
+# correct reset
+set_input_delay $input_delay_value  -clock [get_clocks $::env(CLOCK_PORT)] $all_inputs_wo_clk_rst
+#set_input_delay 0.0 -clock [get_clocks $::env(CLOCK_PORT)] {resetn}
+set_output_delay $output_delay_value  -clock [get_clocks $::env(CLOCK_PORT)] [all_outputs]
+
+# TODO set this as parameter
+set_driving_cell -lib_cell $::env(SYNTH_DRIVING_CELL) -pin $::env(SYNTH_DRIVING_CELL_PIN) [all_inputs]
+set cap_load [expr $::env(SYNTH_CAP_LOAD) / 1000.0]
+puts "\[INFO\]: Setting load to: $cap_load"
+set_load  $cap_load [all_outputs]
+
+
+```
+
+Running STA
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+sta pre_sta.conf
+
+```
+![image](https://github.com/user-attachments/assets/8d337654-d13e-434d-b3d8-a16c7ab2eb07)
+
+
+![image](https://github.com/user-attachments/assets/97351ba7-2c2c-44af-9a74-0eb91d90f0ee)
+
+![image](https://github.com/user-attachments/assets/f1aac38f-bff6-4529-9f87-c2c80954e71d)
+
+Optimizing synthesis
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+docker
+./flow.tcl -interactive
+prep -design picorv32a -tag 14-11_20-06 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+set ::env(SYNTH_SIZING) 1
+set ::env(SYNTH_MAX_FANOUT) 4
+echo $::env(SYNTH_DRIVING_CELL)
+run_synthesis
+
+```
+
+![image](https://github.com/user-attachments/assets/b994822a-423b-4251-a9f3-bb73d369b9a9)
+
+Running STA
+
+Commands
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+sta pre_sta.conf
+```
+![image](https://github.com/user-attachments/assets/2f1b980c-3b16-4067-897e-aaca68009cfb)
+
+
+![image](https://github.com/user-attachments/assets/28cd57f5-93af-4654-81e9-9787cf49fb3f)
+
+Basic timing ECO 
+
