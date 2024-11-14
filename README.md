@@ -4150,3 +4150,16 @@ sta pre_sta.conf
 
 Basic timing ECO 
 
+
+NOR gate of drive strength 2 is driving 5 fanouts
+
+![image](https://github.com/user-attachments/assets/7201473b-5485-41fb-83ae-4cc4f829e0f6)
+
+Optimizing commands :
+
+```
+report_net -connections _13111_
+replace_cell _16171_ sky130_fd_sc_hd__nor3_2
+report_checks -fields {net cap slew input_pins} -digits 4
+
+```
