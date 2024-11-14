@@ -1,25 +1,9 @@
 # ASIC DESIGN  
 
-- [Task 1](#task-1)
-- [Task 2](#task-2)
-- [Task 3](#task-3)
-- [Task 4](#task-4)
-- [Task 5](#task-5)
-  
-- [Task 6](#task-6)
-- [Task 7](#task-7)
-- [Task 8](#task-8)
-- [Task 9](#task-9)
-- [Task 10](#task-10)
-
-- [Task 11](#task-11)
-- [Task 12](#task-12)
-- [Task 13](#task-13)
-
   
 
-
-## TASK 1
+<details>
+<summary>## TASK 1</summary>
 
 ### C Code 
 A code to print sum of numbers from 1 to n(100)
@@ -69,8 +53,11 @@ Here the first instruction address for main is 10184 and the first instruction i
 It is observed that the no. of instructions reduces to 12 for Ofast from 15 for O1.
 Ofast reduces  set of instructions  as Ofast applies aggressive optimizations that  removes redundancies and uses parallelism .So the instructions are less when we compare to O1 case.
 
+</details>
 
-## TASK 2
+<details>
+	
+<summary> ## TASK 2 </summary>
 
 Using Ofast 
 
@@ -108,8 +95,13 @@ Images for O1 case:
 
 ![image](https://github.com/user-attachments/assets/738ac13d-b8ac-47f7-8005-7fbb2f984fa5)
 
+</details>
 
+<details>
+<summary>
 ## TASK 3
+
+</summary>
 
 ## RISC-V Instruction Formats
 
@@ -470,7 +462,14 @@ Corresponding waveforms for our instructions
 
 A difference in waveforms can be observed for both set of instructions
 
+</details>
+
+<details>
+
+ <summary>
 ## TASK 4
+
+</summary>
 
 A C code which utilizes the binary exponentiation algorithm to calculate the power of a number with time complexity O(log n). Binary exponentiation is an algorithm that reduces the number of multiplications needed to compute powers of a number by exploiting the properties of exponents in binary form.
 
@@ -508,7 +507,11 @@ We will then divide by 4 the decimal value obtained .Doing this we get the no. o
 
 We first bring the program counter to the start of the main function. We can see the registers have the corresponding values, the values 5,2 and 25 are present on their respective registers.
 
+</details>
 
+<details>
+
+<summary> Task 6- 12</summary>
 ## TASK 6
 
 ### Pipelined RISC-V Processor
@@ -3127,6 +3130,7 @@ Graphs:
 ![image](https://github.com/user-attachments/assets/58764ded-8d4b-4404-aa5b-b690eae4103a)
 
 
+</details>
 
 ## Task 13 
 
@@ -4115,7 +4119,8 @@ sta pre_sta.conf
 
 ![image](https://github.com/user-attachments/assets/97351ba7-2c2c-44af-9a74-0eb91d90f0ee)
 
-![image](https://github.com/user-attachments/assets/f1aac38f-bff6-4529-9f87-c2c80954e71d)
+![image](https://github.com/user-attachments/assets/0de40c23-88e8-4f5a-b93a-ee323bc7f1da)
+
 
 Optimizing synthesis
 
@@ -4146,7 +4151,7 @@ sta pre_sta.conf
 ![image](https://github.com/user-attachments/assets/2f1b980c-3b16-4067-897e-aaca68009cfb)
 
 
-![image](https://github.com/user-attachments/assets/28cd57f5-93af-4654-81e9-9787cf49fb3f)
+![image](https://github.com/user-attachments/assets/5f0d23fc-5c1b-4ab8-b20e-5b109aab88f5)
 
 Basic timing ECO 
 
@@ -4163,6 +4168,9 @@ replace_cell _16171_ sky130_fd_sc_hd__nor3_2
 report_checks -fields {net cap slew input_pins} -digits 4
 
 ```
+
+![image](https://github.com/user-attachments/assets/566653ff-7343-4411-9a18-17ff865f3926)
+
 
 
 Clock Tree Synthesis (CTS) methods differ depending on design requirements:
