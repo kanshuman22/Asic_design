@@ -3811,12 +3811,10 @@ Fixing the error
 
 We add these commands to the file
 
-![image](https://github.com/user-attachments/assets/0911b9a7-5d25-4bb8-9e90-f06d293c7ce2)
+![Screenshot from 2024-11-14 09-15-43](https://github.com/user-attachments/assets/5eef280d-ffed-4ead-862e-a513410e5bab)
 
 
-![image](https://github.com/user-attachments/assets/1f9bbe1c-a772-4037-87c9-eed884875b06)
-
-
+![image](https://github.com/user-attachments/assets/5235be89-8da8-4e6b-87d8-bf3e4390b64a)
 
 Commands
 
@@ -3831,4 +3829,52 @@ drc why
 ![image](https://github.com/user-attachments/assets/df10e2c9-6373-4656-945a-0daba5d0b5da)
 
 
+## Day 4
+
+Pre-layout timing analysis and importance of good clock tree
+
+Extracting tracks.info file:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
+cd ../../pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/
+less tracks.info
+```
+
+![image](https://github.com/user-attachments/assets/04335003-ef69-4ad5-ab5b-1fadb1ce99ee)
+
+Setting Grid in tkcon for Local-Interconnect Layer
+
+In tkcon window:
+
+```
+
+grid 0.46um 0.34um 0.23um 0.17um
+
+```
+
+![image](https://github.com/user-attachments/assets/e67d7ca7-d0b4-44c3-86bd-70d571f1c395)
+
+save with a custom name 
+
+![image](https://github.com/user-attachments/assets/926b21f5-295c-4fb6-92b7-3ee3c022e8e9)
+
+opening the file
+
+```
+magic -T sky130A.tech sky130_anshinv.mag &
+
+```
+
+![image](https://github.com/user-attachments/assets/f1908b1d-a0d6-4277-a7b8-ae077ff23074)
+
+
+```
+lef write
+
+```
+
+![image](https://github.com/user-attachments/assets/d894e551-eb37-430f-b001-7ac55c6b6c82)
+
+![image](https://github.com/user-attachments/assets/42a31e00-777f-4a31-a72f-3d124efee7e3)
 
