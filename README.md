@@ -4347,6 +4347,62 @@ echo $::env(CTS_CLK_BUFFER_LIST)
 ![image](https://github.com/user-attachments/assets/3ffc11a4-42a4-4691-a93f-9765b6e31ce4)
 
 
+### Day 5
+Maze Routing and Lee's algorithm
 
+Maze Routing involves establishing physical connections between pins, with algorithms like Lee's algorithm used to find optimal paths on a routing grid. The Lee algorithm begins at the source pin and assigns incremental labels to neighboring cells until it reaches the target pin, favoring L-shaped paths and using zigzag routes when necessary. Although it is effective for finding the shortest path between two pins, the Lee algorithm can be slow for large designs, leading to the adoption of faster alternatives for more complex routing challenges.
+
+![image](https://github.com/user-attachments/assets/07d6ba5f-d2ef-49f0-a9f9-82d5582e15c7)
+
+![image](https://github.com/user-attachments/assets/bfc0ac18-96d8-42df-9b7e-9a69145dff6b)
+
+Generating the Power Distribution Network (PDN)
+
+Command:
+
+```
+gen_pdn
+```
+
+In another terminal 
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/14-11_20-06/tmp/floorplan/
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 17-pdn.def &
+
+```
+Screenshots
+
+![image](https://github.com/user-attachments/assets/0bb386cd-f02b-4be6-90da-f951616445cb)
+
+![image](https://github.com/user-attachments/assets/e4d4daa0-8f59-4667-a7ac-9e57fa22067d)
+
+![image](https://github.com/user-attachments/assets/440c100c-f0d5-45a9-979b-bea15b27adaf)
+
+
+When the power distribution network (PDN) generation command is executed, the system constructs the PDN using the design_cts.def file as input.
+
+The PDN includes power rings, straps, and rails:
+
+    Power is first supplied from the VDD and VSS pads to the power rings.
+    Horizontal and vertical straps are then connected to the rings to further distribute power, with these straps directing power to the rails that connect to the standard cells.
+    Rails are positioned at intervals corresponding to the height of the standard cells, aligning with multiples of the track pitch (2.72 in this design) to ensure proper power delivery to all cells.
+
+In this design:
+
+    Straps are placed on metal layers 4 and 5, while the rails for the standard cells are on metal layer 1.
+    Vias are used to link these metal layers, ensuring continuous power flow from the pads to the cells across different metal levels.
+
+![image](https://github.com/user-attachments/assets/682a8ca8-559b-4027-aec7-816b360150f1)
+
+
+Detailed routing using TritonRoute:
+
+```
+echo $::env(CURRENT_DEF)
+echo $::env(ROUTING_STRATEGY)
+run_routing
+
+```
 
 
