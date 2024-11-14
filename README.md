@@ -4409,8 +4409,27 @@ run_routing
 ![image](https://github.com/user-attachments/assets/7e7e50b9-6ed5-4abc-9890-a0a14c5f163a)
 
 
+![image](https://github.com/user-attachments/assets/a5edeefc-906a-403b-9e99-df0f9957ea94)
 
 
+In another terminal
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/14-11_20-06/results/routing/
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.def &
+
+```
+
+![image](https://github.com/user-attachments/assets/1da2563e-1180-4d71-8ecd-f69b95224f37)
+
+![image](https://github.com/user-attachments/assets/28fb7ca8-696d-4469-8e7a-9fd6ee45813f)
+
+
+![image](https://github.com/user-attachments/assets/2ac5f325-2342-46b8-9cac-55b0b61e8a56)
+
+Fast route guide file:
+
+![image](https://github.com/user-attachments/assets/7f98bb7c-3f46-4bab-aab6-458c24d52f45)
 
 
 
@@ -4434,4 +4453,49 @@ A routing topology algorithm determines how the connections between pins in an i
 Its goal is to create an efficient layout that minimizes cost by finding the best paths and shapes for the connections.
 
 ![image](https://github.com/user-attachments/assets/7a56acac-71a8-4721-9eb7-b54a6d33a21e)
+
+
+
+SPEF extraction Post-Route parasitic extraction using SPEF extractor
+
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/scripts/spef_extractor
+python3 main.py -l /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/14-11_20-06/tmp/merged.lef -d /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/14-11_20-06/results/routing/picorv32a.def
+
+```
+
+![image](https://github.com/user-attachments/assets/3fd743a1-5d96-41c4-83ac-0781b6ee838c)
+
+Post-Route OpenSTA timing analysis with the extracted parasitics of the route
+
+```
+openroad
+read_lef /openLANE_flow/designs/picorv32a/runs/14-11_20-06/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/14-11_20-06/results/routing/picorv32a.def
+write_db pico_route.db
+read_db pico_route.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/14-11_20-06/results/synthesis/picorv32a.synthesis_preroute.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+read_spef /openLANE_flow/designs/picorv32a/runs/14-11_20-06/results/routing/picorv32a.spef
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+exit
+
+```
+
+
+![image](https://github.com/user-attachments/assets/b8f09f5e-83e8-438f-95d1-d27fc16da75e)
+
+
+![image](https://github.com/user-attachments/assets/258005f9-1632-4cd7-8ec9-6df3c8468dde)
+
+
+
+![image](https://github.com/user-attachments/assets/76e96371-d3d1-48e4-b3c3-dcbe1429ee86)
+
+
+![image](https://github.com/user-attachments/assets/a9c25938-be47-43c2-9234-f5215a7070b4)
 
