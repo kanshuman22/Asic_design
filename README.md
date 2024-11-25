@@ -4611,9 +4611,102 @@ The evolution of transistor technology from planar to FinFET and Gate-All-Around
 - **FinFET Transistors:** Gate wraps around the channel, improving control and reducing leakage.
 - **GAA Transistors:** The gate fully surrounds the channel, providing superior performance and efficiency as transistor sizes shrink.
 
-## Conclusion
 
-Advancements in transistor architecture, from planar to FinFET and GAA designs, are essential to overcoming the challenges of scaling. As we move toward zettascale computing, innovations in materials, transistor structures, and manufacturing techniques are crucial for maintaining high performance and efficiency in modern electronics.
+# FEOL Innovations and Semiconductor Technology Evolution
+
+## FEOL Overview
+FEOL (Front-End-Of-Line) refers to the first stages of semiconductor manufacturing, where active components like transistors are built on the silicon wafer. This stage involves creating devices such as transistors, capacitors, and isolation structures before adding metal interconnections. FEOL innovations are key to improving transistor performance and helping continue the progress of Moore's Law, which states that the number of transistors on a chip doubles approximately every two years, making devices smaller, faster, and more efficient.
+
+## CMOS Technology Inflection Points
+
+1. **Dennard Scaling**
+   - This principle says that as transistors shrink, power density stays constant.
+   - It enabled voltage scaling when gate lengths became smaller, as seen in the early years.
+
+2. **Key Technology Nodes and Innovations**
+   - **~1 µm**: Start of CMOS miniaturization.
+   - **180 nm**: First reduction in drive voltage.
+   - **130 nm**: Copper interconnects improve conductivity.
+   - **90 nm**: Strained silicon improves electron mobility in NMOS transistors.
+   - **65 nm**: Embedded SiGe improves PMOS transistor performance.
+   - **45 nm**: High-k dielectrics and metal gates reduce leakage.
+   - **32 nm**: Advanced gate designs with raised source/drain regions improve performance.
+
+3. **Key Technology Nodes**
+   - **22 nm**: FinFET (Tri-Gate) transistors introduced to reduce leakage and improve control.
+   - **14 nm**: Unidirectional metal routing increases density.
+   - **10 nm**: Advanced patterning techniques are used for finer geometries.
+   - **7 nm**: EUV (Extreme Ultraviolet Lithography) simplifies the patterning process.
+   - **5 nm**: SiGe channels improve PMOS performance.
+   - **3 nm / 2 nm / 1.4 nm**: Gate-All-Around (GAA) transistors are introduced for better control.
+   - **Sub-1 nm**: CFET (Complementary FET) technology stacks NMOS and PMOS transistors to save space.
+
+## Innovations in Transistor Design
+
+- **Fin Depopulation**: Used by Samsung to reduce the number of fins in FinFETs while keeping the fin width the same. This reduces the size of transistors without losing performance.
+
+- **Double Diffusion Break (DDB)**: Adds a gap between the source and drain regions of a transistor to reduce the effective width, allowing for smaller cell sizes and better scalability.
+  
+- **Contact Over Field Gate (COFG)**: The gate contact is placed over the field oxide region to reduce space between transistors and enable smaller cells.
+
+- **Back-Side Power Delivery Network (BS-PDN)**: Power rails are routed to the backside of the chip, improving power delivery efficiency and allowing more space for transistors.
+
+## Parasitic Resistance Challenges
+
+- **Planar MOSFETs**: Traditional planar transistors have low parasitic resistance due to their simple structure.
+  
+- **FinFETs**: Parasitic resistance increases as the contact width decreases relative to the gate width.
+
+- **Gate-All-Around (GAA) FETs**: This design further reduces contact width, which increases parasitic resistance and impacts performance.
+
+- **Complementary FETs (CFETs)**: These vertically stacked transistors offer space efficiency but face similar parasitic resistance challenges as GAA FETs.
+
+## Parasitic Resistance Breakdown
+
+- Parasitic resistance is broken down into several components: contact resistance, resistance from the Back-End-Of-Line (BEOL) region, and resistance in the Front-End-Of-Line (FEOL) structure.
+- Efforts to reduce parasitic resistance focus on improving the metal-semiconductor interface and enhancing doping concentration.
+
+## Parasitic Capacitance and Scaling
+
+- **Capacitance Breakdown**: As transistor nodes shrink, parasitic capacitances become more significant. For example, at 22nm, the capacitance from the gate and contact areas dominate. As technology moves to smaller nodes, techniques like air spacers are used to reduce parasitic capacitance.
+
+- **Spacer Materials**: The use of advanced materials like SiBCN and SiCO at smaller nodes helps to reduce parasitic capacitance, improving device performance.
+
+## 2D Materials for Advanced Transistors
+
+- **Properties of 2D Materials (e.g., MoS₂)**: These materials have a uniform atomic scale thickness and can be ideal for scaling. They have a higher effective mass than silicon, which helps prevent direct source-to-drain tunneling at very small gate lengths.
+
+## Scaling Challenges
+
+- **Direct Tunneling**: As transistors shrink, electrons may tunnel directly from the source to the drain, causing leakage. To address this, materials with a higher effective mass are needed to control electron flow.
+  
+- **Surface Roughness and Variability**: At atomic scales, variations in surface roughness can impact performance. Using uniform, atomically thin materials like 2D materials helps minimize this issue.
+
+- **Capacitance Ratios**: The gate-to-depletion capacitance ratio must be controlled to improve gate control. Materials with low dielectric constants are used to achieve this.
+
+## Key Takeaways
+
+- To maintain performance at smaller nodes, new materials and advanced designs are required. Transistor scaling is increasingly dependent on innovations in materials, contact technologies, and power delivery networks to overcome challenges like parasitic resistance, capacitance, and tunneling.
+
+
+# Direct Source-to-Drain Tunneling and Advanced MOSFET Design
+
+## Overview
+This project focuses on advanced MOSFET designs using MoS₂ and other 2D materials to reduce leakage currents, improve power efficiency, and scale down transistor sizes. We explore the structure, fabrication, and performance of All-2D MOSFETs, as well as the challenges and solutions in advanced semiconductor technologies.
+
+## Key Concepts
+- **Direct Source-to-Drain Tunneling**: Smaller gate lengths lead to increased tunneling leakage. Materials like MoS₂ help reduce leakage due to their higher effective mass and larger bandgap.
+- **MoS₂ Transistor with Ultra-Small Gate Length**: MoS₂ transistors with 1 nm gate lengths offer breakthroughs in miniaturization and energy efficiency.
+- **All-2D MOSFET Design**: A completely 2D MOSFET with components made from graphene, MoS₂, and h-BN shows excellent performance and scalability.
+
+## Advanced Fabrication Techniques
+- **Monolithic 3D CMOS**: Stacking NMOS and PMOS transistors in separate layers reduces footprint and improves performance.
+- **Copper Interconnects**: Techniques like Dual and Single Damascene Cu, along with selective barriers like TaN, improve interconnect reliability.
+- **Back-Side Power Delivery Network (BS-PDN)**: Reduces IR-drop for better power efficiency and performance.
+
+## Future Outlook
+The use of 2D materials, innovative gate designs, and advanced interconnect technologies promise significant advancements in transistor scaling, energy efficiency, and overall performance.
+
 
 
 Installation:
