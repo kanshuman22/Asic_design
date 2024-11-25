@@ -4886,9 +4886,15 @@ make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_cts
 
 ![image](https://github.com/user-attachments/assets/46f55e99-eee1-4270-bc98-9631cbec36cd)
 
+![image](https://github.com/user-attachments/assets/6c18f34f-286b-415d-9616-31ccd59fe318)
+
+
 ![image](https://github.com/user-attachments/assets/72fe18d2-7090-46a3-aa18-595088a5d869)
 
 ![image](https://github.com/user-attachments/assets/de30039c-5ddc-483b-b65e-16f0b91d9a1c)
+
+![image](https://github.com/user-attachments/assets/9a46d8f9-4845-4d72-b280-de4d5ce2d151)
+
 
 
 
