@@ -4837,4 +4837,56 @@ Floorplan:
 ![image](https://github.com/user-attachments/assets/f5593366-e839-4355-900b-e0f458dcbdf7)
 
 
+![image](https://github.com/user-attachments/assets/9eaa8835-8dc7-4223-bf33-b6af072011a6)
+
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk place
+
+```
+
+![image](https://github.com/user-attachments/assets/97b33de3-79b9-4691-a5dd-cbbbf092ec2a)
+
+![image](https://github.com/user-attachments/assets/85c8344e-86ef-449c-88dd-b53f64870399)
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_place
+
+```
+
+![image](https://github.com/user-attachments/assets/0c775eb5-f46a-4cfb-8cdf-c37255df0be9)
+
+CTS
+
+
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk cts
+
+```
+
+![image](https://github.com/user-attachments/assets/75cfff37-65c1-4e3f-9d86-0da71dba67f3)
+
+
+![image](https://github.com/user-attachments/assets/c2410ce0-55b4-4585-b9be-68efb401bc86)
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_cts
+
+```
+
+
+![image](https://github.com/user-attachments/assets/46f55e99-eee1-4270-bc98-9631cbec36cd)
+
+
+Commmands route
+
+![image](https://github.com/user-attachments/assets/5902704e-5d58-4574-bcd2-c48839702599)
+
+
+![image](https://github.com/user-attachments/assets/20227a1e-8cc2-4b17-a1a4-534f78eb70c5)
+
+
+
+
 </details>
