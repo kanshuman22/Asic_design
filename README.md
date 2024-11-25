@@ -4519,3 +4519,48 @@ exit
 
 
 </details>
+
+
+
+<details>
+
+<summary>  
+## Task 14
+</summary>
+
+Installation:
+
+```
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
+cd OpenROAD-flow-scripts
+sudo ./setup.sh
+./build_openroad.sh --local
+```
+
+![Screenshot from 2024-11-24 22-33-17](https://github.com/user-attachments/assets/543d8816-1bc3-4099-b6e8-4a14a75ad5be)
+
+Verifying installation:
+
+```
+source ./env.sh
+yosys -help
+openroad -help
+cd flow
+make
+
+
+```
+
+![Screenshot from 2024-11-24 22-38-32](https://github.com/user-attachments/assets/03bdb60b-f36f-44d3-a2c3-6d121d5e95d8)
+
+![Screenshot from 2024-11-24 22-39-05](https://github.com/user-attachments/assets/ce6f948d-1ecf-4e52-a803-94a8d645c4c7)
+
+![Screenshot from 2024-11-24 22-40-13](https://github.com/user-attachments/assets/1ad0459b-b705-437a-a79c-71d83681cce1)
+
+
+![Screenshot from 2024-11-24 22-40-46](https://github.com/user-attachments/assets/92857565-4650-43e7-9ebf-dad4af073760)
+
+
+
+ 
+</details>
