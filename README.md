@@ -4561,6 +4561,60 @@ make
 ![Screenshot from 2024-11-24 22-40-46](https://github.com/user-attachments/assets/92857565-4650-43e7-9ebf-dad4af073760)
 
 
+ORFS directory and file formats
+![image](https://github.com/user-attachments/assets/0bdbfd73-35bf-411e-b88d-4ce361c77399)
 
- 
+```
+├── OpenROAD-flow-scripts             
+│   ├── docker           -> It has Docker based installation, run scripts and all saved here
+│   ├── docs             -> Documentation for OpenROAD or its flow scripts.  
+│   ├── flow             -> Files related to run RTL to GDS flow  
+|   ├── jenkins          -> It contains the regression test designed for each build update
+│   ├── tools            -> It contains all the required tools to run RTL to GDS flow
+│   ├── etc              -> Has the dependency installer script and other things
+│   ├── setup_env.sh     -> Its the source file to source all our OpenROAD rules to run the RTL to GDS flow
+
+```
+
+Flow directory:
+
+![image](https://github.com/user-attachments/assets/4bf4d4a1-0015-4e3e-83fb-493a0bb162ab)
+
+```
+├── flow           
+│   ├── design           -> It has built-in examples from RTL to GDS flow across different technology nodes
+│   ├── makefile         -> The automated flow runs through makefile setup
+│   ├── platform         -> It has different technology note libraries, lef files, GDS etc 
+|   ├── tutorials        
+│   ├── util            
+│   ├── scripts             
+
+```
+
+Automated RTL2GDS Flow for VSDBabySoC:
+Create a Directory:
+
+    Create a directory named vsdbabysoc within the path OpenROAD-flow-scripts/flow/designs/sky130hd.
+
+Copy Files from the VSDBabySoC Folder:
+
+    Copy the following folders from your local VSDBabySoC folder to the newly created vsdbabysoc directory:
+        gds folder: Contains the files avsddac.gds and avsdpll.gds.
+        include folder: Contains the files sandpiper.vh, sandpiper_gen.vh, sp_default.vh, and sp_verilog.vh.
+        lef folder: Contains the files avsddac.lef and avsdpll.lef.
+        lib folder: Contains the files avsddac.lib and avsdpll.lib.
+
+Copy the Constraints File:
+
+    Copy the constraints file vsdbabysoc_synthesis.sdc from your local VSDBabySoC folder to the vsdbabysoc directory.
+
+Copy Additional Configuration Files:
+
+    Copy the files macro.cfg and pin_order.cfg from your local VSDBabySoC folder into the vsdbabysoc directory.
+
+Create a New Macro Configuration File:
+
+    Create a new macro.cfg file in the vsdbabysoc directory. The contents of this file should be as shown below:
+
+
 </details>
