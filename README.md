@@ -4834,10 +4834,7 @@ Synth stats
 
 Floorplan:
 
-![image](https://github.com/user-attachments/assets/346ecfcb-7bdb-4971-b0f5-ff5a9fb5db9c)
-
-![image](https://github.com/user-attachments/assets/0303d002-6eb5-4ebc-ac77-9bf4a0d226a0)
-
+![image](https://github.com/user-attachments/assets/f5593366-e839-4355-900b-e0f458dcbdf7)
 
 
 </details>
