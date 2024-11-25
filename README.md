@@ -4795,7 +4795,49 @@ Copy the files macro.cfg and pin_order.cfg from your local VSDBabySoC folder int
 
 Create a New Macro Configuration File:
 
-Create a new macro.cfg file in the vsdbabysoc directory. The contents of this file should be as shown below:
+Create a new macro.cfg file in the vsdbabysoc directory
+
+
+
+Execution
+
+![image](https://github.com/user-attachments/assets/fe18b791-5dad-4ca8-9aed-93b409d9fa0e)
+
+
+![image](https://github.com/user-attachments/assets/496356de-917a-4d83-9bad-d0a28177711a)
+
+
+
+Synthesis netlist 
+![image](https://github.com/user-attachments/assets/a68b7658-0392-4983-9ee6-9a1c06a2391a)
+
+
+Synthesis logs
+
+![image](https://github.com/user-attachments/assets/6996dc60-543c-4676-b5c4-08d72c0f147c)
+
+
+Synth check:
+
+![image](https://github.com/user-attachments/assets/e4eb11c2-505c-4e3b-abdb-ed9830d77f97)
+
+
+Synth stats
+
+![image](https://github.com/user-attachments/assets/31a8a9fc-73ea-4081-9926-6ca4bcec9207)
+
+![image](https://github.com/user-attachments/assets/c63e2300-6e6f-4c44-bea3-27cfefecc0bb)
+
+
+![image](https://github.com/user-attachments/assets/1f83d73b-e588-4d14-8653-145abd084bf8)
+
+
+Floorplan:
+
+![image](https://github.com/user-attachments/assets/346ecfcb-7bdb-4971-b0f5-ff5a9fb5db9c)
+
+![image](https://github.com/user-attachments/assets/0303d002-6eb5-4ebc-ac77-9bf4a0d226a0)
+
 
 
 </details>
